@@ -8,7 +8,8 @@ public class Bullet : MonoBehaviour
     private Vector3 mousePos;
     private Camera mainCam;
     private Rigidbody2D rb;
-    public float Speed = 10;
+    public float Speed = 10f;
+    public float damage = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -35,4 +36,20 @@ public class Bullet : MonoBehaviour
     {
         Speed = newSpeed;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        EnemyStats enemy = collision.gameObject.GetComponent<EnemyStats>();
+        if (enemy != null)
+        {
+            enemy.Hit(damage);
+            GameObject.Destroy(gameObject);
+        }
+    }
+
+    private void OnBecameInvisible()
+    {
+        GameObject.Destroy(gameObject);
+    }
+
 }
