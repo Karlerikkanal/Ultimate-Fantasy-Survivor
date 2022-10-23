@@ -8,12 +8,12 @@ public class EnemyMovement : MonoBehaviour
     private GameObject player;
     public float MovementSpeed = 1f;
     public Vector2 movement;
-    void Start()
+
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        player = GameObject.FindWithTag("Player");
+        player = Player.Instance.gameObject;
     }
-
     
     void Update()
     {

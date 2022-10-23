@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -32,6 +33,23 @@ public class GameHUD : MonoBehaviour
     public void SetHealth(float health)
     {
         HealthBar.fillAmount = health;
+    }
+
+    public void SetScore(float score)
+    {
+        ScoreNumberText.text = score.ToString();
+    }
+
+    public void RestartPressed()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        RestartPanel.SetActive(false);
+    }
+
+    public void ShowLosePanel()
+    {
+        RestartPanel.SetActive(true);
+        Player.Instance.gameObject.SetActive(false);
     }
 
     public void ExitToMenu()

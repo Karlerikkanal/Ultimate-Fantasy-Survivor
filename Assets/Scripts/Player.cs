@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public static Player Instance;
     private Rigidbody2D rb;
     public float MovementSpeed = 150f;
     public Vector2 movement;
@@ -21,16 +22,31 @@ public class Player : MonoBehaviour
             GameHUD.Instance.SetHealth(_health);
         }
     }
-    private float damageDelay = 0.5f;
+    private float damageDelay = 0.1f;
     private float nextHitTime;
+
+    private float _score;
+    public float Score
+    {
+        get
+        {
+            return _score;
+        }
+        set
+        {
+            _score = value;
+            GameHUD.Instance.SetScore(_score);
+        }
+    }
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        
+        Score = 0;
     }
     private void Awake()
     {
+        Instance = this;
         Health = 1f;
         nextHitTime = Time.time;
     }
@@ -50,6 +66,12 @@ public class Player : MonoBehaviour
         rb.velocity = (direction*MovementSpeed * Time.deltaTime);
     }
 
+    private void isDead()
+    {
+        GameHUD.Instance.ShowLosePanel();
+        
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         EnemyStats enemy = collision.gameObject.GetComponent<EnemyStats>();
@@ -59,6 +81,10 @@ public class Player : MonoBehaviour
             {
                 Health -= enemy.damage / 100;
                 nextHitTime += damageDelay;
+                if (Health <= 0)
+                {
+                    isDead();
+                }
             }
         }
     }
