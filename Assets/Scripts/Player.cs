@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     public float MovementSpeed = 150f;
     public Vector2 movement;
+    public Animator animator;
 
     public float _health;
     public float Health
@@ -55,6 +56,9 @@ public class Player : MonoBehaviour
     void Update()
     {
         movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        animator.SetFloat("Horizontal", movement.x);
+        animator.SetFloat("Vertical", movement.y);
+        animator.SetFloat("Speed", movement.sqrMagnitude);
     }
     void FixedUpdate()
     {
