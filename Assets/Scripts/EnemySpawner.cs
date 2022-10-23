@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public static EnemySpawner Instance;
+    
     public List<EnemyGeneric> enemies = new List<EnemyGeneric>();
     public int currentWave;
     public float waveValue;
@@ -12,10 +14,15 @@ public class EnemySpawner : MonoBehaviour
 
     public Transform[] spawnLocations;
     public int waveDuration;
-    public float waveTimer;
-    public float spawnInterval;
-    public float spawnTimer;
+    private float waveTimer;
+    private float spawnInterval;
+    private float spawnTimer;
     public int enemiesAlive = 0;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
     void Start()
     {
         GenerateWave();
@@ -42,7 +49,7 @@ public class EnemySpawner : MonoBehaviour
         }
         if (spawnTimer < 0 && enemiesToSpawn.Count != 0) // Spawn Enemy if possible
         {
-            if (enemiesToSpawn.Count > 0 && enemiesAlive < 100)
+            if (enemiesToSpawn.Count > 0 && enemiesAlive < 100) //
             {
                 Instantiate(enemiesToSpawn[0], spawnLocations[Random.Range(0,10)].position, Quaternion.identity);
                 enemiesToSpawn.RemoveAt(0);

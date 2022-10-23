@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyStats : MonoBehaviour
 {
     public float health;
-    public float speed;
+    public float speed; //LINK TO ENEMYMOVEMENT MOVEMENTSPEED
     public float damage;
     private EnemySpawner spawner;
     void Start()
@@ -15,7 +15,7 @@ public class EnemyStats : MonoBehaviour
     }
     private void Awake()
     {
-        spawner = GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<EnemySpawner>();
+        spawner = EnemySpawner.Instance;
         float currentWave = (float) spawner.currentWave / 10; //Scaling here, change the number value to change scaling
         health = 0.7f + currentWave;
         speed = 1 + currentWave;
@@ -36,7 +36,8 @@ public class EnemyStats : MonoBehaviour
         {
             GameObject.Destroy(gameObject);
             spawner.enemiesAlive--;
-            //Add score siia
+            
+            //Add score siia: score oleks nt health * 10
         }
     }
 
