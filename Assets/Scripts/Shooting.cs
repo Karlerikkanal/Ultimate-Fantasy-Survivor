@@ -6,7 +6,7 @@ public class Shooting : MonoBehaviour
 {
     private Camera mainCam;
     private Vector3 mousePos;
-    public GameObject bullet;
+    public List<GameObject> bullet;
     public Transform bulletTransform;
     public bool canFire;
     private float timer;
@@ -15,6 +15,7 @@ public class Shooting : MonoBehaviour
     private float rapidFireSpeed;
     private bool rapidFire = false;
     private float rightSpeed;
+    private bool machineGun = false;
 
     // Start is called before the first frame update
     void Start()
@@ -56,8 +57,26 @@ public class Shooting : MonoBehaviour
         if (Input.GetMouseButton(0) && canFire)
         {
             canFire = false;
-            Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+            if (machineGun)
+            {
+                Instantiate(bullet[1], bulletTransform.position, Quaternion.identity);
+            }
+            else Instantiate(bullet[0], bulletTransform.position, Quaternion.identity);
         }
+
+    }
+
+    public void MachineGunShooting()
+    {
+        if (rapidFire)
+        {
+            timeBetweenFiring = rightSpeed * 0.6f;
+            rightSpeed = timeBetweenFiring;
+            Debug.Log("timebetweenfiring is" + timeBetweenFiring);
+        }
+        else timeBetweenFiring = timeBetweenFiring * 0.6f;
+        Debug.Log("We are changing the fire rate!");
+        machineGun = true;
 
     }
 
@@ -66,25 +85,8 @@ public class Shooting : MonoBehaviour
         rapidFireTimer += Time.deltaTime;
         rapidFireSpeed = timeBetweenFiring / 2;
         rightSpeed = timeBetweenFiring;
+        Debug.Log("Rightspeed is" + rightSpeed);
         timeBetweenFiring = rapidFireSpeed;
         rapidFire = true;
-
-
-
-
-
-        //Debug.Log("rapidfirepowerup initiated");
-        //float timer2 = Time.deltaTime;
-        //float rightSpeed = timeBetweenFiring;
-        //float newSpeed = timeBetweenFiring / 2;
-        
-
-        //while (timer2 < 5.00)
-        //{
-        //    timeBetweenFiring = newSpeed;
-        //}
-        //Debug.Log("rapidfirePowerup stopped");
-        //timeBetweenFiring = rightSpeed;
-        //Debug.Log("outofthemethod");
     }
 }
