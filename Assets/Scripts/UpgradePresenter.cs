@@ -12,6 +12,12 @@ public class UpgradePresenter : MonoBehaviour
     public TextMeshProUGUI CountText;
     public Image Icon;
     private Button button;
+    public AudioClipGroup purchaseSound;
+
+    public void ClickPurchase()
+    {
+        purchaseSound?.PlayAtIndex(0);
+    }
     public int price;
     public int level;
 

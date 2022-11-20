@@ -11,9 +11,11 @@ public class GameHUD : MonoBehaviour
 {
     public static GameHUD Instance;
     public Image HealthBar;
-    
+    public AudioClipGroup menuSounds;
+    public AudioClipGroup fightSound;
     public GameObject RestartPanel;
     public TextMeshProUGUI ScoreNumberText;
+    private AudioSource audioSource;
     
 
     private void Awake()
@@ -24,6 +26,8 @@ public class GameHUD : MonoBehaviour
     {
         HealthBar.fillAmount = 1f;
         RestartPanel.SetActive(false);
+        fightSound?.Play();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -43,12 +47,14 @@ public class GameHUD : MonoBehaviour
 
     public void RestartPressed()
     {
+        //fightSound?.Play();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         RestartPanel.SetActive(false);
     }
 
     public void ShowLosePanel()
     {
+        audioSource.Play();
         RestartPanel.SetActive(true);
         Player.Instance.gameObject.SetActive(false);
         if (PlayerPrefs.HasKey("money"))
@@ -64,5 +70,10 @@ public class GameHUD : MonoBehaviour
     public void ExitToMenu()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void Click()
+    {
+        menuSounds.PlayAtIndex(1);
     }
 }

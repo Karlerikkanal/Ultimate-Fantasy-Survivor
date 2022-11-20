@@ -8,6 +8,8 @@ public class Shooting : MonoBehaviour
     private Vector3 mousePos;
     public GameObject bullet;
     public Transform bulletTransform;
+    public AudioClipGroup arrowSounds;
+    private AudioSource audioSource;
     public bool canFire;
     private float timer;
     public float timeBetweenFiring;
@@ -20,6 +22,7 @@ public class Shooting : MonoBehaviour
     void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        audioSource = GetComponent<AudioSource>();
         if (PlayerPrefs.HasKey("firerateLevel"))
         {
             timeBetweenFiring -= ((float)PlayerPrefs.GetInt("firerateLevel") * 0.04f);
@@ -60,6 +63,7 @@ public class Shooting : MonoBehaviour
         if (Input.GetMouseButton(0) && canFire)
         {
             canFire = false;
+            arrowSounds?.Play(audioSource);
             Instantiate(bullet, bulletTransform.position, Quaternion.identity);
         }
 
