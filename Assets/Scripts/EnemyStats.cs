@@ -8,6 +8,8 @@ public class EnemyStats : MonoBehaviour
     public float speed; //LINK TO ENEMYMOVEMENT MOVEMENTSPEED
     public float damage;
     private EnemySpawner spawner;
+    private AudioSource audioSource;
+    public AudioClip deathSound;
     private float score;
     void Start()
     {
@@ -21,6 +23,7 @@ public class EnemyStats : MonoBehaviour
         speed += currentWave;
         damage += currentWave;
         score = health * 10;
+        audioSource = GetComponent<AudioSource>();
     }
 
 
@@ -34,6 +37,7 @@ public class EnemyStats : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
+            audioSource.PlayOneShot(deathSound);
             GameObject.Destroy(gameObject);
             spawner.enemiesAlive--;
             Player.Instance.Score = Player.Instance.Score + score;
