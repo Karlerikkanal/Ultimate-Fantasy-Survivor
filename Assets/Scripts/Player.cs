@@ -9,10 +9,10 @@ public class Player : MonoBehaviour
     public AudioClipGroup deathSounds;
     public AudioClipGroup hitSounds;
     public AudioClipGroup steppingSounds;
-    public AudioClip hitSound;
-    public AudioClip stepSound;
-    private AudioSource audioSource;
-    public AudioClip deathsound;
+    //public AudioClip hitSound;
+    //public AudioClip stepSound;
+    //private AudioSource audioSource;
+    //public AudioClip deathsound;
 
     public float MovementSpeed = 150f;
     public Vector2 movement;
@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        audioSource = GetComponent<AudioSource>();
+        //audioSource = GetComponent<AudioSource>();
         Score = 0;
         if (PlayerPrefs.HasKey("speedLevel"))
         {
@@ -113,7 +113,7 @@ public class Player : MonoBehaviour
         {
             if (Time.time >= nextHitTime)
             {
-                hitSounds?.Play(audioSource);
+                hitSounds?.Play();
                 //audioSource.PlayOneShot(hitSound);
                 Health -= enemy.damage / 100;
                 nextHitTime += damageDelay;

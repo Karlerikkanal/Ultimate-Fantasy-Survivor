@@ -201,8 +201,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 87148355, guid: 53407a8fada23e34bb68b25322c67dee, type: 3}
+  m_Color: {r: 0.5849056, g: 0.10704873, b: 0.4725707, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -97180,9 +97180,6 @@ MonoBehaviour:
   deathSounds: {fileID: 11400000, guid: d8c63d211ba597d40a0fd93a1a709fff, type: 2}
   hitSounds: {fileID: 11400000, guid: e31cf2092fa147e48b7ccc620b8b6ce5, type: 2}
   steppingSounds: {fileID: 11400000, guid: e6ce44f9439155c4a87e4deb060fc4e9, type: 2}
-  hitSound: {fileID: 8300000, guid: 5bc1c7e40b1526c4aa845de7d1223f36, type: 3}
-  stepSound: {fileID: 8300000, guid: bed0ba69134d95e47bc3e506e7aa1034, type: 3}
-  deathsound: {fileID: 8300000, guid: 4bcbf7248a73b5d4cb0548cc3f6fb122, type: 3}
   MovementSpeed: 150
   movement: {x: 0, y: 0}
   animator: {fileID: 2073788891}
