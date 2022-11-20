@@ -34,6 +34,9 @@ public class Player : MonoBehaviour
     private float damageDelay = 0.1f;
     private float nextHitTime;
 
+    private float regenDelay = 3f;
+    private float nextRegenTick;
+
     private float _score;
     public float Score
     {
@@ -53,12 +56,17 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
         Score = 0;
+        if (PlayerPrefs.HasKey("speedLevel"))
+        {
+            MovementSpeed += (float) PlayerPrefs.GetInt("speedLevel") * 10f;
+        }
     }
     private void Awake()
     {
         Instance = this;
         Health = 1f;
         nextHitTime = Time.time;
+        nextRegenTick = Time.time;
     }
 
 
@@ -68,6 +76,14 @@ public class Player : MonoBehaviour
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);
+        if (PlayerPrefs.HasKey("healthLevel") && Time.time > nextRegenTick)
+        {
+            if (Health < 1f)
+            {
+                Health += (float)PlayerPrefs.GetInt("healthLevel") / 100f;
+                nextRegenTick += regenDelay;
+            }
+        }
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
             //steppingSounds?.Play(audioSource);

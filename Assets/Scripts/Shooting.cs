@@ -23,6 +23,10 @@ public class Shooting : MonoBehaviour
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         audioSource = GetComponent<AudioSource>();
+        if (PlayerPrefs.HasKey("firerateLevel"))
+        {
+            timeBetweenFiring -= ((float)PlayerPrefs.GetInt("firerateLevel") * 0.04f);
+        }
     }
 
     // Update is called once per frame
