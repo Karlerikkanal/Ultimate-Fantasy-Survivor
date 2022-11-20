@@ -65,7 +65,6 @@ public class Shooting : MonoBehaviour
         {
             canFire = false;
             arrowSounds?.Play(audioSource);
-            Instantiate(bullet, bulletTransform.position, Quaternion.identity);
             if (machineGun)
             {
                 Instantiate(bullet[1], bulletTransform.position, Quaternion.identity);
