@@ -20,7 +20,7 @@ public class EnemyStats : MonoBehaviour
         health += currentWave;
         speed += currentWave;
         damage += currentWave;
-        score = health * 10;
+        score = health * 10f;
     }
 
 

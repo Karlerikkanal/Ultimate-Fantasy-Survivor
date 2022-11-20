@@ -88568,7 +88568,7 @@ MonoBehaviour:
   bullet: {fileID: 1933656280698490099, guid: f2c0e0a090156a742bb926e3ac644366, type: 3}
   bulletTransform: {fileID: 18151340}
   canFire: 1
-  timeBetweenFiring: 0.3
+  timeBetweenFiring: 0.4
 --- !u!1 &1559677382
 GameObject:
   m_ObjectHideFlags: 0

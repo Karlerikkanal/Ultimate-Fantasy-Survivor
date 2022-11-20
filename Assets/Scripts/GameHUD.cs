@@ -4,6 +4,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class GameHUD : MonoBehaviour
@@ -50,6 +51,14 @@ public class GameHUD : MonoBehaviour
     {
         RestartPanel.SetActive(true);
         Player.Instance.gameObject.SetActive(false);
+        if (PlayerPrefs.HasKey("money"))
+        {
+            PlayerPrefs.SetFloat("money", float.Parse(ScoreNumberText.text) + PlayerPrefs.GetFloat("money"));
+        }
+        else
+        {
+            PlayerPrefs.SetFloat("money", float.Parse(ScoreNumberText.text));
+        }
     }
 
     public void ExitToMenu()
