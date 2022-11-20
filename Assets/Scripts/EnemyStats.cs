@@ -17,9 +17,9 @@ public class EnemyStats : MonoBehaviour
     {
         spawner = EnemySpawner.Instance;
         float currentWave = (float) spawner.currentWave / 10; //Scaling here, change the number value to change scaling, Smaller number is tougher scaling, higher is easier scaling
-        health = 0.7f + currentWave;
-        speed = 1 + currentWave;
-        damage = 1 + currentWave;
+        health += currentWave;
+        speed += currentWave;
+        damage += currentWave;
         score = health * 10;
     }
 

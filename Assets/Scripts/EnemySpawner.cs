@@ -49,7 +49,7 @@ public class EnemySpawner : MonoBehaviour
         }
         if (spawnTimer < 0 && enemiesToSpawn.Count != 0) // Spawn Enemy if possible
         {
-            if (enemiesToSpawn.Count > 0 && enemiesAlive < 70) //
+            if (enemiesToSpawn.Count > 0 && enemiesAlive < 50) //Changes the enemiesalive condition to reduce or increase the amount of enemies on the map
             {
                 Instantiate(enemiesToSpawn[0], spawnLocations[Random.Range(0,10)].position, Quaternion.identity);
                 enemiesToSpawn.RemoveAt(0);

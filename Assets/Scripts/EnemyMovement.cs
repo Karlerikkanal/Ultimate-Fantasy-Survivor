@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -9,10 +10,13 @@ public class EnemyMovement : MonoBehaviour
     public float MovementSpeed = 1f;
     public Vector2 movement;
 
+    private Animator anim;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         player = Player.Instance.gameObject;
+        anim = GetComponent<Animator>();
     }
     
     void Update()
@@ -20,6 +24,8 @@ public class EnemyMovement : MonoBehaviour
         Vector3 direction = player.transform.position - transform.position;
         direction.Normalize();
         movement = direction;
+        anim.SetFloat("xMov", movement.normalized.x);
+        anim.SetFloat("yMov", movement.normalized.y);
     }
     void FixedUpdate()
     {
