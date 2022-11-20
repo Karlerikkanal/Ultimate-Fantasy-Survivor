@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuHandler : MonoBehaviour
 {
+    public AudioClipGroup menuSounds;
     public void PlayGame()
     {
         SceneManager.LoadScene(1);
@@ -13,5 +14,10 @@ public class MainMenuHandler : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+    }
+
+    public void PlayClick()
+    {
+        menuSounds?.PlayAtIndex(1);
     }
 }

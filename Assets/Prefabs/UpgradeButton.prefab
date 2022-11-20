@@ -111,7 +111,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -34.5}
+  m_AnchoredPosition: {x: 0.000005722, y: -45.9}
   m_SizeDelta: {x: 80.817, y: 12.472}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7705195336261026239
@@ -494,6 +494,7 @@ GameObject:
   - component: {fileID: 7705195337722420218}
   - component: {fileID: 7705195337722420219}
   - component: {fileID: 7705195337722420212}
+  - component: {fileID: -8718468571296677570}
   m_Layer: 5
   m_Name: UpgradeButton
   m_TagString: Untagged
@@ -622,3 +623,19 @@ MonoBehaviour:
   CostText: {fileID: 7705195336715364213}
   CountText: {fileID: 7705195336389011113}
   Icon: {fileID: 7705195336143009532}
+  price: 0
+  level: 0
+  purchaseSound: {fileID: 11400000, guid: c6181148a107934448efeb6a78297650, type: 2}
+--- !u!114 &-8718468571296677570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7705195337722420217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a99525f9dd8ecc4899036f712b3c15a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioSourcePrefab: {fileID: 1702189673627062588, guid: d02dd2273ef09a446972e3262123017a, type: 3}

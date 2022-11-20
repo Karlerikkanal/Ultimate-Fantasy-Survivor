@@ -6,6 +6,14 @@ public class Player : MonoBehaviour
 {
     public static Player Instance;
     private Rigidbody2D rb;
+    public AudioClipGroup deathSounds;
+    public AudioClipGroup hitSounds;
+    public AudioClipGroup steppingSounds;
+    public AudioClip hitSound;
+    public AudioClip stepSound;
+    private AudioSource audioSource;
+    public AudioClip deathsound;
+
     public float MovementSpeed = 150f;
     public Vector2 movement;
     public Animator animator;
@@ -26,6 +34,9 @@ public class Player : MonoBehaviour
     private float damageDelay = 0.1f;
     private float nextHitTime;
 
+    private float regenDelay = 3f;
+    private float nextRegenTick;
+
     private float _score;
     public float Score
     {
@@ -43,13 +54,19 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
         Score = 0;
+        if (PlayerPrefs.HasKey("speedLevel"))
+        {
+            MovementSpeed += (float) PlayerPrefs.GetInt("speedLevel") * 10f;
+        }
     }
     private void Awake()
     {
         Instance = this;
         Health = 1f;
         nextHitTime = Time.time;
+        nextRegenTick = Time.time;
     }
 
 
@@ -59,6 +76,19 @@ public class Player : MonoBehaviour
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);
+        if (PlayerPrefs.HasKey("healthLevel") && Time.time > nextRegenTick)
+        {
+            if (Health < 1f)
+            {
+                Health += (float)PlayerPrefs.GetInt("healthLevel") / 100f;
+                nextRegenTick += regenDelay;
+            }
+        }
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        {
+            //steppingSounds?.Play(audioSource);
+            //audioSource.PlayOneShot(stepSound);
+        }
     }
     void FixedUpdate()
     {
@@ -83,10 +113,13 @@ public class Player : MonoBehaviour
         {
             if (Time.time >= nextHitTime)
             {
+                hitSounds?.Play(audioSource);
+                //audioSource.PlayOneShot(hitSound);
                 Health -= enemy.damage / 100;
                 nextHitTime += damageDelay;
                 if (Health <= 0)
                 {
+                    //deathSounds?.Play();
                     isDead();
                 }
             }
