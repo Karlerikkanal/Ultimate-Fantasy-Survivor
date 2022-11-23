@@ -9,11 +9,10 @@ public class EnemyStats : MonoBehaviour
     public float damage;
     private EnemySpawner spawner;
     private AudioSource audioSource;
-    public AudioClip deathSound;
     private float score;
     void Start()
     {
-
+        audioSource = GetComponent<AudioSource>();
     }
     private void Awake()
     {
@@ -23,7 +22,6 @@ public class EnemyStats : MonoBehaviour
         speed += currentWave;
         damage += currentWave;
         score = health * 10;
-        audioSource = GetComponent<AudioSource>();
     }
 
 
@@ -37,7 +35,7 @@ public class EnemyStats : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            audioSource.PlayOneShot(deathSound);
+            audioSource.Play();
             GameObject.Destroy(gameObject);
             spawner.enemiesAlive--;
             Player.Instance.Score = Player.Instance.Score + score;
