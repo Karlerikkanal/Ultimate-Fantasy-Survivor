@@ -47,6 +47,10 @@ public class Player : MonoBehaviour
         }
     }
 
+    public bool InVulnerable;
+    private float inVulnerabilityTimer;
+    private SpriteRenderer rend;
+
     private float damageDelay = 0.1f;
     private float nextHitTime;
 
@@ -71,6 +75,9 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         //audioSource = GetComponent<AudioSource>();
+        // for invulnerabilty powerup
+        rend = GetComponent<SpriteRenderer>();
+
         Score = 0;
         if (PlayerPrefs.HasKey("speedLevel"))
         {
@@ -84,7 +91,8 @@ public class Player : MonoBehaviour
         Armor = 0f;
         nextHitTime = Time.time;
         nextRegenTick = Time.time;
-    }
+        InVulnerable = false;
+}
 
 
     void Update()
@@ -106,6 +114,19 @@ public class Player : MonoBehaviour
             //steppingSounds?.Play(audioSource);
             //audioSource.PlayOneShot(stepSound);
         }
+
+        if (InVulnerable)
+        {
+            inVulnerabilityTimer += Time.deltaTime;
+            if (inVulnerabilityTimer > 10.00)
+            {
+                InVulnerable = false;
+                inVulnerabilityTimer = 0;
+                // change back to normal
+                rend.color = new Color (1, 1, 1 ,1);
+            }
+        }
+
     }
     void FixedUpdate()
     {
@@ -128,6 +149,30 @@ public class Player : MonoBehaviour
         EnemyStats enemy = collision.gameObject.GetComponent<EnemyStats>();
         if (enemy != null)
         {
+            if (!InVulnerable)
+            {
+                if (Time.time >= nextHitTime)
+                {
+                    hitSounds?.Play();
+                    //audioSource.PlayOneShot(hitSound);
+                    if (Armor > 0)
+                    {
+                        Armor -= enemy.damage / 100;
+                    }
+                    else
+                    {
+                        Health -= enemy.damage / 100;
+                    }
+                    //Health -= enemy.damage / 100;
+                    nextHitTime += damageDelay;
+                    if (Health <= 0)
+                    {
+                        //deathSounds?.Play();
+                        isDead();
+                    }
+                }
+            }
+            /*
             if (Time.time >= nextHitTime)
             {
                 hitSounds?.Play();
@@ -148,6 +193,7 @@ public class Player : MonoBehaviour
                     isDead();
                 }
             }
+            */
         }
     }
 
@@ -170,8 +216,17 @@ public class Player : MonoBehaviour
             shootingScript.rapidFirePowerup();
             Debug.Log("Bullet speed after colliding: " + shootingScript.timeBetweenFiring);
             GameObject.Destroy(collision.gameObject);
-
         }
 
+        if (collision.gameObject.name.Contains("Invulnerability"))
+        {
+            powerupSounds?.PlayAtIndex(1);
+            Debug.Log("playerscriptis invulnerability korjatud");
+            InVulnerable = true;
+            // make a bit transparent           
+            rend.color = new Color (1, 1, 1, 0.5f);
+            Debug.Log("peaks olema invulnerable");
+            GameObject.Destroy(collision.gameObject);
+        }
     }
 }

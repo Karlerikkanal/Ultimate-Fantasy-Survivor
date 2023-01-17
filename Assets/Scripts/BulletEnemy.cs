@@ -30,8 +30,31 @@ public class BulletEnemy : MonoBehaviour
         Player player = collision.gameObject.GetComponent<Player>();
         if (player != null)
         {
-            Player.Instance.Health -= damage;
+            if (!player.InVulnerable)
+            {
+                if (Player.Instance.Armor > 0)
+                {
+                    Player.Instance.Armor -= damage;
+                }
+                else
+                {
+                    Player.Instance.Health -= damage;
+                }
+                //Player.Instance.Health -= damage;
+                GameObject.Destroy(gameObject);
+            }
+            /*
+            if (Player.Instance.Armor > 0)
+            {
+                Player.Instance.Armor -= damage;
+            }
+            else
+            {
+                Player.Instance.Health -= damage;
+            } 
+            //Player.Instance.Health -= damage;
             GameObject.Destroy(gameObject);
+            */
         }
     }
 
