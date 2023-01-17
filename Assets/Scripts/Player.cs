@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public AudioClipGroup deathSounds;
     public AudioClipGroup hitSounds;
     public AudioClipGroup steppingSounds;
+    public AudioClipGroup powerupSounds;
     //public AudioClip hitSound;
     //public AudioClip stepSound;
     //private AudioSource audioSource;
@@ -31,6 +32,21 @@ public class Player : MonoBehaviour
             GameHUD.Instance.SetHealth(_health);
         }
     }
+
+    public float _armor;
+    public float Armor
+    {
+        get
+        {
+            return _armor;
+        }
+        set
+        {
+            _armor = Mathf.Clamp(value, 0f, 1f);
+            GameHUD.Instance.SetArmor(_armor);
+        }
+    }
+
     private float damageDelay = 0.1f;
     private float nextHitTime;
 
@@ -65,6 +81,7 @@ public class Player : MonoBehaviour
     {
         Instance = this;
         Health = 1f;
+        Armor = 0f;
         nextHitTime = Time.time;
         nextRegenTick = Time.time;
     }
@@ -115,7 +132,15 @@ public class Player : MonoBehaviour
             {
                 hitSounds?.Play();
                 //audioSource.PlayOneShot(hitSound);
-                Health -= enemy.damage / 100;
+                if (Armor > 0)
+                {
+                    Armor -= enemy.damage / 100;
+                }
+                else
+                {
+                    Health -= enemy.damage / 100;
+                }
+                //Health -= enemy.damage / 100;
                 nextHitTime += damageDelay;
                 if (Health <= 0)
                 {
@@ -126,6 +151,27 @@ public class Player : MonoBehaviour
         }
     }
 
+    // Powerupide jaoks
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.name.Contains("Armor"))
+        {
+            Debug.Log("playerscriptis armor korjatud");
+            powerupSounds?.PlayAtIndex(1);
+            Armor = 1f;            
+            GameObject.Destroy(collision.gameObject);
+        }
 
+        if (collision.gameObject.name.Contains("RapidFire"))
+        {
+            powerupSounds?.PlayAtIndex(1);
+            Shooting shootingScript = GameObject.FindGameObjectWithTag("RotatePoint").GetComponent<Shooting>();
+            Debug.Log("Bullet interval before colliding: " + shootingScript.timeBetweenFiring);
+            shootingScript.rapidFirePowerup();
+            Debug.Log("Bullet speed after colliding: " + shootingScript.timeBetweenFiring);
+            GameObject.Destroy(collision.gameObject);
 
+        }
+
+    }
 }

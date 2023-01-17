@@ -11,6 +11,7 @@ public class GameHUD : MonoBehaviour
 {
     public static GameHUD Instance;
     public Image HealthBar;
+    public Image ArmorBar;
     public AudioClipGroup menuSounds;
     public AudioClipGroup fightSound;
     public GameObject RestartPanel;
@@ -25,6 +26,7 @@ public class GameHUD : MonoBehaviour
     void Start()
     {
         HealthBar.fillAmount = 1f;
+        ArmorBar.fillAmount = 0f;
         RestartPanel.SetActive(false);
         fightSound?.Play();
         audioSource = GetComponent<AudioSource>();
@@ -38,6 +40,11 @@ public class GameHUD : MonoBehaviour
     public void SetHealth(float health)
     {
         HealthBar.fillAmount = health;
+    }
+
+    public void SetArmor(float armor)
+    {
+        ArmorBar.fillAmount = armor;
     }
 
     public void SetScore(float score)
