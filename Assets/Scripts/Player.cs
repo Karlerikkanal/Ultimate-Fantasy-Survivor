@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -18,6 +19,9 @@ public class Player : MonoBehaviour
     public float MovementSpeed = 150f;
     public Vector2 movement;
     public Animator animator;
+
+    public bool gamePaused = false;
+
 
     public float _health;
     public float Health
@@ -183,6 +187,18 @@ public class Player : MonoBehaviour
         GameHUD.Instance.SetNextLevelText(Xp, XpNeededForNextLevel);
         GameHUD.Instance.SetXp(Xp, XpNeededForNextLevel);
 
+        if (Input.GetKeyDown(KeyCode.Escape)) //Mängu pausilepanek
+        {
+            if (!gamePaused)
+            {
+                GameHUD.Instance.PauseGame();
+            }
+            else
+            {
+                GameHUD.Instance.ResumeGame();
+            }
+            gamePaused = !gamePaused;
+        }
     }
     void FixedUpdate()
     {

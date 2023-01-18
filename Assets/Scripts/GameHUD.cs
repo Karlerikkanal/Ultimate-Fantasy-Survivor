@@ -1,12 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Data;
-using System.Xml.Schema;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class GameHUD : MonoBehaviour
@@ -17,12 +11,18 @@ public class GameHUD : MonoBehaviour
     public Image XpBar;
     public AudioClipGroup menuSounds;
     public AudioClipGroup fightSound;
+
+    public GameObject PausePanel;
+    public TextMeshProUGUI CurrentScoreNumberText;
+
     public GameObject RestartPanel;
     public TextMeshProUGUI ScoreNumberText;
+    
+    
+
     public TextMeshProUGUI LevelText;
     public TextMeshProUGUI NextLevelText;
     private AudioSource audioSource;
-    
 
     private void Awake()
     {
@@ -34,6 +34,7 @@ public class GameHUD : MonoBehaviour
         ArmorBar.fillAmount = 0f;
         XpBar.fillAmount = 0f;
         RestartPanel.SetActive(false);
+        PausePanel.SetActive(false);
         fightSound?.Play();
         audioSource = GetComponent<AudioSource>();
     }
@@ -41,6 +42,19 @@ public class GameHUD : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void PauseGame()
+    {
+        PausePanel.SetActive(true);
+        Time.timeScale = 0f;
+        CurrentScoreNumberText.text = Player.Instance.Score.ToString();
+    }
+
+    public void ResumeGame()
+    {
+        PausePanel.SetActive(false);
+        Time.timeScale = 1;
     }
 
     public void SetHealth(float health)
@@ -106,5 +120,10 @@ public class GameHUD : MonoBehaviour
     public void Click()
     {
         menuSounds.PlayAtIndex(1);
+    }
+
+    public void ResumeButtonClicked() //Eraldi selleks, sest kui nupuga pannakse resume, siis boolean ei muutu, kuid on vaja et ta muutuks
+    {
+        Player.Instance.gamePaused = !Player.Instance.gamePaused;
     }
 }
