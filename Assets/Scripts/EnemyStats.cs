@@ -38,6 +38,7 @@ public class EnemyStats : MonoBehaviour
             GameObject.Destroy(gameObject);
             spawner.enemiesAlive--;
             Player.Instance.Score = Player.Instance.Score + score;
+            Player.Instance.Xp = Player.Instance.Xp + score;
         }
     }
 

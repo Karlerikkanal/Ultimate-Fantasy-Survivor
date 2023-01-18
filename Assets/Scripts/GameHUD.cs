@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
+using System.Xml.Schema;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -12,10 +14,13 @@ public class GameHUD : MonoBehaviour
     public static GameHUD Instance;
     public Image HealthBar;
     public Image ArmorBar;
+    public Image XpBar;
     public AudioClipGroup menuSounds;
     public AudioClipGroup fightSound;
     public GameObject RestartPanel;
     public TextMeshProUGUI ScoreNumberText;
+    public TextMeshProUGUI LevelText;
+    public TextMeshProUGUI NextLevelText;
     private AudioSource audioSource;
     
 
@@ -27,6 +32,7 @@ public class GameHUD : MonoBehaviour
     {
         HealthBar.fillAmount = 1f;
         ArmorBar.fillAmount = 0f;
+        XpBar.fillAmount = 0f;
         RestartPanel.SetActive(false);
         fightSound?.Play();
         audioSource = GetComponent<AudioSource>();
@@ -50,6 +56,24 @@ public class GameHUD : MonoBehaviour
     public void SetScore(float score)
     {
         ScoreNumberText.text = score.ToString();
+    }
+
+    public void SetLevelText(int level)
+    {
+        LevelText.text = "LEVEL: " + level.ToString();
+    }
+
+    public void SetNextLevelText(float xp, float xpneededfornextlevel)
+    {
+        float total = xpneededfornextlevel - xp;
+        NextLevelText.text = "XP NEEDED UNTIL NEXT LEVEL: " + total.ToString();
+    }
+
+    public void SetXp(float xp, float xpneededfornextlevel)
+    {
+        float fill = xp * 100 / xpneededfornextlevel / 100;
+        //Debug.Log("Kalkuleeritud fill on: " + fill.ToString());
+        XpBar.fillAmount = fill;
     }
 
     public void RestartPressed()

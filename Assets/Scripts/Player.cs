@@ -47,6 +47,35 @@ public class Player : MonoBehaviour
         }
     }
 
+    public float _xp;
+    private float _xpneededfornextlevel;
+
+    public float Xp
+    {
+        get
+        {
+            return _xp;
+        }
+        set
+        {
+            _xp = value;
+        }
+    }
+
+    public int _level;
+    public int Level
+    {
+        get
+        {
+            return _level;
+        }
+        set
+        {
+            _level = value;
+            GameHUD.Instance.SetLevelText(_level);
+        }
+    }
+
     public bool InVulnerable;
     private float inVulnerabilityTimer;
     private SpriteRenderer rend;
@@ -71,6 +100,18 @@ public class Player : MonoBehaviour
         }
     }
 
+    public float XpNeededForNextLevel
+    {
+        get
+        {
+            return _xpneededfornextlevel;
+        }
+        set
+        {
+            _xpneededfornextlevel = value;
+        }
+    }
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -89,6 +130,9 @@ public class Player : MonoBehaviour
         Instance = this;
         Health = 1f;
         Armor = 0f;
+        Xp = 0f;
+        Level = 0;
+        XpNeededForNextLevel = 100;
         nextHitTime = Time.time;
         nextRegenTick = Time.time;
         InVulnerable = false;
@@ -127,6 +171,17 @@ public class Player : MonoBehaviour
                 rend.color = new Color (1, 1, 1 ,1);
             }
         }
+        //Debug.Log("XP on hetkel " + Xp.ToString());
+        if (XpNeededForNextLevel <= Xp)
+        {
+            Level += 1;
+            // Xp overflowi jaoks
+            Xp = Xp - XpNeededForNextLevel;
+            XpNeededForNextLevel = XpNeededForNextLevel * 2;
+        }
+        //Skoori ja xp bari pidev uuendamine
+        GameHUD.Instance.SetNextLevelText(Xp, XpNeededForNextLevel);
+        GameHUD.Instance.SetXp(Xp, XpNeededForNextLevel);
 
     }
     void FixedUpdate()
