@@ -13,16 +13,15 @@ public class EnemyStats : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-    }
-    private void Awake()
-    {
+
         spawner = EnemySpawner.Instance;
-        float currentWave = (float) spawner.currentWave / 10; //Scaling here, change the number value to change scaling, Smaller number is tougher scaling, higher is easier scaling
+        float currentWave = (float)spawner.currentWave / 10; //Scaling here, change the number value to change scaling, Smaller number is tougher scaling, higher is easier scaling
         health += currentWave;
-        speed += currentWave;
+        speed += currentWave / 2;
         damage += currentWave;
         score = health * 10;
     }
+    
 
 
     void Update()

@@ -42,6 +42,10 @@ public class BulletEnemy : MonoBehaviour
                 }
                 //Player.Instance.Health -= damage;
                 GameObject.Destroy(gameObject);
+                if (Player.Instance.Health <= 0f)
+                {
+                    Player.Instance.isDead();
+                }
             }
             /*
             if (Player.Instance.Armor > 0)

@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 7603900908769208108}
   - component: {fileID: 423463023135019559}
   - component: {fileID: 7456066340013474577}
-  - component: {fileID: 5261031138402549438}
   m_Layer: 0
-  m_Name: AllEnemiesDead
+  m_Name: Instakill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,15 +101,3 @@ CircleCollider2D:
   m_Offset: {x: -0.03, y: 0.19}
   serializedVersion: 2
   m_Radius: 0.32
---- !u!114 &5261031138402549438
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6417712763702266617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1da200971f34ab40a0e3519d7a00dce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

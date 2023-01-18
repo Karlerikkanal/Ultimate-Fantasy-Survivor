@@ -49,8 +49,9 @@ public class ShopHandler : MonoBehaviour
         if (HealthPresenter.level < 5 && money >= HealthPresenter.price)
         {
             money -= HealthPresenter.price;
+            MoneyText.text = "MONEY: " + money.ToString();
             HealthPresenter.level += 1;
-            HealthPresenter.price *= 5;
+            HealthPresenter.price *= 3;
             HealthPresenter.UpdateData();
         }
     }
@@ -60,8 +61,9 @@ public class ShopHandler : MonoBehaviour
         if (SpeedPresenter.level < 5 && money >= SpeedPresenter.price)
         {
             money -= SpeedPresenter.price;
+            MoneyText.text = "MONEY: " + money.ToString();
             SpeedPresenter.level += 1;
-            SpeedPresenter.price *= 5;
+            SpeedPresenter.price *= 3;
             SpeedPresenter.UpdateData();
         }
     }
@@ -71,8 +73,9 @@ public class ShopHandler : MonoBehaviour
         if (FireratePresenter.level < 5 && money >= FireratePresenter.price)
         {
             money -= FireratePresenter.price;
+            MoneyText.text = "MONEY: " + money.ToString();
             FireratePresenter.level += 1;
-            FireratePresenter.price *= 5;
+            FireratePresenter.price *= 3;
             FireratePresenter.UpdateData();
         }
     }

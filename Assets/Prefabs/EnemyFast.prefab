@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7451113164695616148}
   - component: {fileID: 9201693581425887134}
-  - component: {fileID: 5334319369363994165}
+  - component: {fileID: 3019803796346654721}
   - component: {fileID: -159016943902931642}
   - component: {fileID: 8508257971769888328}
   - component: {fileID: 1180164905019362138}
@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 1971486648104043577}
   m_Layer: 0
   m_Name: EnemyFast
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90,8 +90,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
---- !u!60 &5334319369363994165
-PolygonCollider2D:
+--- !u!61 &3019803796346654721
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -100,10 +100,10 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.033316188}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -113,23 +113,9 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.31, y: 0.06}
-      - {x: 0.26999998, y: 0.14999999}
-      - {x: 0.06, y: 0.29}
-      - {x: -0.06, y: 0.29}
-      - {x: -0.26999998, y: 0.16}
-      - {x: -0.32, y: 0.11}
-      - {x: -0.32, y: -0.03}
-      - {x: -0.14999999, y: -0.099999994}
-      - {x: -0.12, y: -0.26}
-      - {x: -0.08, y: -0.29999998}
-      - {x: 0.04, y: -0.29999998}
-      - {x: 0.089999996, y: -0.29}
-      - {x: 0.12, y: -0.26}
-      - {x: 0.21, y: -0.049999997}
-      - {x: 0.31, y: -0.01}
+  serializedVersion: 2
+  m_Size: {x: 0.3, y: 0.40336758}
+  m_EdgeRadius: 0
 --- !u!50 &-159016943902931642
 Rigidbody2D:
   serializedVersion: 4
@@ -165,6 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementSpeed: 2
   movement: {x: 0, y: 0}
+  stats: {fileID: 0}
 --- !u!114 &1180164905019362138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,7 +167,6 @@ MonoBehaviour:
   health: 1
   speed: 2
   damage: 1
-  deathSound: {fileID: 8300000, guid: 779a76b7a53e18c40bfde1eb6d9741d2, type: 3}
 --- !u!95 &-871254671179952426
 Animator:
   serializedVersion: 4
@@ -221,7 +207,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 0
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 1.2557144
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0

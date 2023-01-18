@@ -69,7 +69,10 @@ public class Shooting : MonoBehaviour
             {
                 Instantiate(bullet[1], bulletTransform.position, Quaternion.identity);
             }
-            else Instantiate(bullet[0], bulletTransform.position, Quaternion.identity);
+            else
+            {
+                Instantiate(bullet[0], bulletTransform.position, Quaternion.identity);
+            }
         }
 
     }

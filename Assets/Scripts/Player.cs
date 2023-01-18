@@ -105,7 +105,8 @@ public class Player : MonoBehaviour
         {
             if (Health < 1f)
             {
-                Health += (float)PlayerPrefs.GetInt("healthLevel") / 100f;
+                Health += (float)PlayerPrefs.GetInt("healthLevel") / 200f;
+                nextRegenTick = Time.time;
                 nextRegenTick += regenDelay;
             }
         }
@@ -138,7 +139,7 @@ public class Player : MonoBehaviour
         rb.velocity = (direction*MovementSpeed * Time.deltaTime);
     }
 
-    private void isDead()
+    public void isDead()
     {
         GameHUD.Instance.ShowLosePanel();
         
@@ -164,6 +165,7 @@ public class Player : MonoBehaviour
                         Health -= enemy.damage / 100;
                     }
                     //Health -= enemy.damage / 100;
+                    nextHitTime = Time.time;
                     nextHitTime += damageDelay;
                     if (Health <= 0)
                     {
@@ -208,7 +210,7 @@ public class Player : MonoBehaviour
             GameObject.Destroy(collision.gameObject);
         }
 
-        if (collision.gameObject.name.Contains("RapidFire"))
+        else if (collision.gameObject.name.Contains("RapidFire"))
         {
             powerupSounds?.PlayAtIndex(1);
             Shooting shootingScript = GameObject.FindGameObjectWithTag("RotatePoint").GetComponent<Shooting>();
@@ -218,7 +220,7 @@ public class Player : MonoBehaviour
             GameObject.Destroy(collision.gameObject);
         }
 
-        if (collision.gameObject.name.Contains("Invulnerability"))
+        else if (collision.gameObject.name.Contains("Invulnerability"))
         {
             powerupSounds?.PlayAtIndex(1);
             Debug.Log("playerscriptis invulnerability korjatud");
@@ -226,6 +228,18 @@ public class Player : MonoBehaviour
             // make a bit transparent           
             rend.color = new Color (1, 1, 1, 0.5f);
             Debug.Log("peaks olema invulnerable");
+            GameObject.Destroy(collision.gameObject);
+        }
+
+        else if (collision.gameObject.name.Contains("Instakill"))
+        {
+            powerupSounds?.PlayAtIndex(1);
+            Debug.Log("playerscriptis Instakill korjatud");
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            foreach (GameObject enemy in enemies)
+            {
+                enemy.GetComponent<EnemyStats>().Hit(9999999);
+            }
             GameObject.Destroy(collision.gameObject);
         }
     }
