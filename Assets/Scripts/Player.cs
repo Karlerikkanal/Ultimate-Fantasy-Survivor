@@ -175,27 +175,27 @@ public class Player : MonoBehaviour
                 rend.color = new Color (1, 1, 1 ,1);
             }
         }
-        //Debug.Log("XP on hetkel " + Xp.ToString());
+        
         if (XpNeededForNextLevel <= Xp)
         {
             Level += 1;
+            GameHUD.Instance.PauseGame(true);
             // Xp overflowi jaoks
             Xp = Xp - XpNeededForNextLevel;
             XpNeededForNextLevel = XpNeededForNextLevel * 2;
         }
         //Skoori ja xp bari pidev uuendamine
-        GameHUD.Instance.SetNextLevelText(Xp, XpNeededForNextLevel);
         GameHUD.Instance.SetXp(Xp, XpNeededForNextLevel);
 
         if (Input.GetKeyDown(KeyCode.Escape)) //Mängu pausilepanek
         {
             if (!gamePaused)
             {
-                GameHUD.Instance.PauseGame();
+                GameHUD.Instance.PauseGame(false);
             }
             else
             {
-                GameHUD.Instance.ResumeGame();
+                GameHUD.Instance.ResumeGame(false);
             }
             gamePaused = !gamePaused;
         }

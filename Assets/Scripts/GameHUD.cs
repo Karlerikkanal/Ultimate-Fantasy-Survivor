@@ -17,8 +17,8 @@ public class GameHUD : MonoBehaviour
 
     public GameObject RestartPanel;
     public TextMeshProUGUI ScoreNumberText;
-    
-    
+
+    public GameObject UpgradePanel;
 
     public TextMeshProUGUI LevelText;
     public TextMeshProUGUI NextLevelText;
@@ -44,17 +44,31 @@ public class GameHUD : MonoBehaviour
         
     }
 
-    public void PauseGame()
+    public void PauseGame(bool upgrade)
     {
-        PausePanel.SetActive(true);
-        Time.timeScale = 0f;
-        CurrentScoreNumberText.text = Player.Instance.Score.ToString();
+        if (upgrade) {
+            UpgradePanel.SetActive(true);
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            PausePanel.SetActive(true);
+            Time.timeScale = 0f;
+            CurrentScoreNumberText.text = Player.Instance.Score.ToString();
+        }
     }
 
-    public void ResumeGame()
+    public void ResumeGame(bool upgrade)
     {
-        PausePanel.SetActive(false);
-        Time.timeScale = 1;
+        if (upgrade) {
+            UpgradePanel.SetActive(false);
+            Time.timeScale = 1;
+        }
+        else
+        {
+            PausePanel.SetActive(false);
+            Time.timeScale = 1;
+        }
     }
 
     public void SetHealth(float health)
@@ -75,12 +89,6 @@ public class GameHUD : MonoBehaviour
     public void SetLevelText(int level)
     {
         LevelText.text = "LEVEL: " + level.ToString();
-    }
-
-    public void SetNextLevelText(float xp, float xpneededfornextlevel)
-    {
-        float total = xpneededfornextlevel - xp;
-        NextLevelText.text = "XP NEEDED UNTIL NEXT LEVEL: " + total.ToString();
     }
 
     public void SetXp(float xp, float xpneededfornextlevel)
