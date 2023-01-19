@@ -292,8 +292,29 @@ public class Player : MonoBehaviour
             powerupSounds?.Play();
             Debug.Log("playerscriptis coinpowerup korjatud");
             Debug.Log("Skoor enne: " + Score);
-            Score += 10000f;
+            Score += 1000000f;
             Debug.Log("Skoor pärast: " + Score);
+            GameObject.Destroy(collision.gameObject);
+        }
+
+        else if (collision.gameObject.name.Contains("HealthRefill"))
+        {
+            powerupSounds?.Play();
+            Debug.Log("playerscriptis healthrefill korjatud");
+            Health = 1f;
+            GameObject.Destroy(collision.gameObject);
+        }
+
+
+        else if (collision.gameObject.name.Contains("XPBoost"))
+        {
+            powerupSounds?.Play();
+            Debug.Log("playerscriptis XPBoost korjatud");
+            Debug.Log("XP enne: " + Xp);
+            Debug.Log("XPNEEDED enne: " + XpNeededForNextLevel);
+            //XpNeededForNextLevel = Xp;
+            Xp += XpNeededForNextLevel;
+            Debug.Log("XP pärast: " + Xp);
             GameObject.Destroy(collision.gameObject);
         }
     }
