@@ -286,5 +286,15 @@ public class Player : MonoBehaviour
             }
             GameObject.Destroy(collision.gameObject);
         }
+
+        else if (collision.gameObject.name.Contains("CoinPowerup"))
+        {
+            powerupSounds?.Play();
+            Debug.Log("playerscriptis coinpowerup korjatud");
+            Debug.Log("Skoor enne: " + Score);
+            Score += 10000f;
+            Debug.Log("Skoor pärast: " + Score);
+            GameObject.Destroy(collision.gameObject);
+        }
     }
 }
