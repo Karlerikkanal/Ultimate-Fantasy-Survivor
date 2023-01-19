@@ -50,18 +50,6 @@ public class BulletEnemy : MonoBehaviour
                     Player.Instance.isDead();
                 }
             }
-            /*
-            if (Player.Instance.Armor > 0)
-            {
-                Player.Instance.Armor -= damage;
-            }
-            else
-            {
-                Player.Instance.Health -= damage;
-            } 
-            //Player.Instance.Health -= damage;
-            GameObject.Destroy(gameObject);
-            */
         }
     }
 

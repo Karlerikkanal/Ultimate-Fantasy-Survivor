@@ -8,7 +8,6 @@ public class Player : MonoBehaviour
     public static Player Instance;
     private Rigidbody2D rb;
     public AudioClipGroup fightSound;
-    public AudioClipGroup hitSounds;
     public AudioClipGroup deathSound;
     public AudioClipGroup steppingSounds;
     public AudioClipGroup powerupSounds;
@@ -81,9 +80,6 @@ public class Player : MonoBehaviour
     private float inVulnerabilityTimer;
     private SpriteRenderer rend;
 
-    private float damageDelay = 0.1f;
-    private float nextHitTime;
-
     private float regenDelay = 3f;
     private float nextRegenTick;
 
@@ -135,7 +131,6 @@ public class Player : MonoBehaviour
         Xp = 0f;
         Level = 0;
         XpNeededForNextLevel = 100;
-        nextHitTime = Time.time;
         nextRegenTick = Time.time;
         InVulnerable = false;
 }
@@ -211,36 +206,6 @@ public class Player : MonoBehaviour
     {
         GameHUD.Instance.ShowLosePanel();
         deathSound?.Play();
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        EnemyStats enemy = collision.gameObject.GetComponent<EnemyStats>();
-        if (enemy != null)
-        {
-            if (!InVulnerable)
-            {
-                if (Time.time >= nextHitTime)
-                {
-                    hitSounds?.Play();
-
-                    if (Armor > 0)
-                    {
-                        Armor -= enemy.damage / 100;
-                    }
-                    else
-                    {
-                        Health -= enemy.damage / 100;
-                    }
-                    nextHitTime = Time.time;
-                    nextHitTime += damageDelay;
-                    if (Health <= 0)
-                    {
-                        isDead();
-                    }
-                }
-            }
-        }
     }
 
     // Powerupide jaoks
