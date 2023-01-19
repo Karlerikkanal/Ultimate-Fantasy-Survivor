@@ -1605,7 +1605,6 @@ GameObject:
   - component: {fileID: 455131452}
   - component: {fileID: 455131451}
   - component: {fileID: 455131454}
-  - component: {fileID: 455131455}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1713,31 +1712,6 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &455131455
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 455131450}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f38a4f75ed810fa42997069203c0c3c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds:
-  - name: Fight
-    clip: {fileID: 8300000, guid: 69c72cf2aba0a474cb45ff875f5b747f, type: 3}
-    volume: 1
-    pitch: 1
-    randomVolume: 0.082
-    randomPitch: 0.089
-  - name: ShootArrow
-    clip: {fileID: 8300000, guid: 67e2ae8682c9285439e125f76daf02c8, type: 3}
-    volume: 1
-    pitch: 1
-    randomVolume: 0.153
-    randomPitch: 0.158
 --- !u!1 &470495811
 GameObject:
   m_ObjectHideFlags: 0
@@ -36746,7 +36720,7 @@ GameObject:
   - component: {fileID: 811736998}
   - component: {fileID: 811737000}
   - component: {fileID: 811736999}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: TilemapWater
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98022,7 +97996,7 @@ GameObject:
   - component: {fileID: 2073788891}
   - component: {fileID: 2073788892}
   - component: {fileID: 2073788893}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -98186,7 +98160,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0005631298, y: -0.059817806}
