@@ -7,14 +7,11 @@ public class Player : MonoBehaviour
 {
     public static Player Instance;
     private Rigidbody2D rb;
-    public AudioClipGroup deathSounds;
+    public AudioClipGroup fightSound;
     public AudioClipGroup hitSounds;
+    public AudioClipGroup deathSound;
     public AudioClipGroup steppingSounds;
     public AudioClipGroup powerupSounds;
-    //public AudioClip hitSound;
-    //public AudioClip stepSound;
-    //private AudioSource audioSource;
-    //public AudioClip deathsound;
 
     public float MovementSpeed = 150f;
     public Vector2 movement;
@@ -119,7 +116,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        //audioSource = GetComponent<AudioSource>();
         // for invulnerabilty powerup
         rend = GetComponent<SpriteRenderer>();
 
@@ -128,6 +124,8 @@ public class Player : MonoBehaviour
         {
             MovementSpeed += (float) PlayerPrefs.GetInt("speedLevel") * 10f;
         }
+
+        fightSound?.Play();
     }
     private void Awake()
     {
@@ -160,8 +158,7 @@ public class Player : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
-            //steppingSounds?.Play(audioSource);
-            //audioSource.PlayOneShot(stepSound);
+            steppingSounds?.Play();
         }
 
         if (InVulnerable)
@@ -213,7 +210,7 @@ public class Player : MonoBehaviour
     public void isDead()
     {
         GameHUD.Instance.ShowLosePanel();
-        
+        deathSound?.Play();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -226,7 +223,7 @@ public class Player : MonoBehaviour
                 if (Time.time >= nextHitTime)
                 {
                     hitSounds?.Play();
-                    //audioSource.PlayOneShot(hitSound);
+
                     if (Armor > 0)
                     {
                         Armor -= enemy.damage / 100;
@@ -235,38 +232,14 @@ public class Player : MonoBehaviour
                     {
                         Health -= enemy.damage / 100;
                     }
-                    //Health -= enemy.damage / 100;
                     nextHitTime = Time.time;
                     nextHitTime += damageDelay;
                     if (Health <= 0)
                     {
-                        //deathSounds?.Play();
                         isDead();
                     }
                 }
             }
-            /*
-            if (Time.time >= nextHitTime)
-            {
-                hitSounds?.Play();
-                //audioSource.PlayOneShot(hitSound);
-                if (Armor > 0)
-                {
-                    Armor -= enemy.damage / 100;
-                }
-                else
-                {
-                    Health -= enemy.damage / 100;
-                }
-                //Health -= enemy.damage / 100;
-                nextHitTime += damageDelay;
-                if (Health <= 0)
-                {
-                    //deathSounds?.Play();
-                    isDead();
-                }
-            }
-            */
         }
     }
 
@@ -276,14 +249,14 @@ public class Player : MonoBehaviour
         if (collision.gameObject.name.Contains("Armor"))
         {
             Debug.Log("playerscriptis armor korjatud");
-            powerupSounds?.PlayAtIndex(1);
+            powerupSounds?.Play();
             Armor = 1f;            
             GameObject.Destroy(collision.gameObject);
         }
 
         else if (collision.gameObject.name.Contains("RapidFire"))
         {
-            powerupSounds?.PlayAtIndex(1);
+            powerupSounds?.Play();
             Shooting shootingScript = GameObject.FindGameObjectWithTag("RotatePoint").GetComponent<Shooting>();
             Debug.Log("Bullet interval before colliding: " + shootingScript.timeBetweenFiring);
             shootingScript.rapidFirePowerup();
@@ -293,7 +266,7 @@ public class Player : MonoBehaviour
 
         else if (collision.gameObject.name.Contains("Invulnerability"))
         {
-            powerupSounds?.PlayAtIndex(1);
+            powerupSounds?.Play();
             Debug.Log("playerscriptis invulnerability korjatud");
             InVulnerable = true;
             // make a bit transparent           
@@ -304,7 +277,7 @@ public class Player : MonoBehaviour
 
         else if (collision.gameObject.name.Contains("Instakill"))
         {
-            powerupSounds?.PlayAtIndex(1);
+            powerupSounds?.Play();
             Debug.Log("playerscriptis Instakill korjatud");
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
             foreach (GameObject enemy in enemies)

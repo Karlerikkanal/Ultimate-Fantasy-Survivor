@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f6de6f2710f8884c91ddc78835dd557, type: 3}
   m_Name: Button
   m_EditorClassIdentifier: 
-  AudioClips:
-  - {fileID: 8300000, guid: 5b360d0196f2b0a46a250f2d2c6e5215, type: 3}
+  VolumeMin: 0.5
+  VolumeMax: 0.5
+  PitchMin: 1
+  PitchMax: 1
+  Cooldown: 0.1
+  Clips:
   - {fileID: 8300000, guid: bb4bf7d87e025884e9cf375866db642f, type: 3}
-  VolumeMin: 1
-  VolumeMax: 1
-  PitchMin: 0
-  PitchMax: 0
-  Cooldown: 0

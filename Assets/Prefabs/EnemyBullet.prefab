@@ -101,6 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 5
   damage: 0.1
+  bulletAudio: {fileID: 11400000, guid: ebc82f584689e6946a7cf250d7a2526d, type: 2}
+  bulletHitAudio: {fileID: 11400000, guid: 48d918d7d727c5f4e83735cb52ce4634, type: 2}
 --- !u!61 &2709096549780170538
 BoxCollider2D:
   m_ObjectHideFlags: 0

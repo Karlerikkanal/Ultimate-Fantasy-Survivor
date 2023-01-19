@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f6de6f2710f8884c91ddc78835dd557, type: 3}
   m_Name: Groan
   m_EditorClassIdentifier: 
-  AudioClips:
+  VolumeMin: 0.5
+  VolumeMax: 0.5
+  PitchMin: 1
+  PitchMax: 1
+  Cooldown: 0.5
+  Clips:
+  - {fileID: 8300000, guid: 351287da78e58584da105ac6c5a52f1c, type: 3}
   - {fileID: 8300000, guid: 5bc1c7e40b1526c4aa845de7d1223f36, type: 3}
   - {fileID: 8300000, guid: 351ee0d039a2e6a4bb9baab118ffbd54, type: 3}
   - {fileID: 8300000, guid: 05240446a37676c488cc4966742868a4, type: 3}
-  VolumeMin: 0.5
-  VolumeMax: 0.5
-  PitchMin: 0
-  PitchMax: 0
-  Cooldown: 1

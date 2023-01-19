@@ -18,6 +18,6 @@ public class MainMenuHandler : MonoBehaviour
 
     public void PlayClick()
     {
-        menuSounds?.PlayAtIndex(1);
+        menuSounds?.Play();
     }
 }

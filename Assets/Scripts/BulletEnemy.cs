@@ -7,7 +7,9 @@ public class BulletEnemy : MonoBehaviour
     public float Speed = 10f;
     public float damage = 0.1f;
     private Rigidbody2D rb;
-    
+    public AudioClipGroup bulletAudio;
+    public AudioClipGroup bulletHitAudio;
+
     void Start()
     {
         Vector3 player = Player.Instance.transform.position;
@@ -18,6 +20,7 @@ public class BulletEnemy : MonoBehaviour
         rb.velocity = new Vector2(direction.x, direction.y).normalized * Speed;
         float rot = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rot);
+        bulletAudio?.Play();
     }
 
     void Update()
@@ -32,6 +35,7 @@ public class BulletEnemy : MonoBehaviour
         {
             if (!player.InVulnerable)
             {
+                bulletHitAudio?.Play();
                 if (Player.Instance.Armor > 0)
                 {
                     Player.Instance.Armor -= damage;
@@ -40,7 +44,6 @@ public class BulletEnemy : MonoBehaviour
                 {
                     Player.Instance.Health -= damage;
                 }
-                //Player.Instance.Health -= damage;
                 GameObject.Destroy(gameObject);
                 if (Player.Instance.Health <= 0f)
                 {

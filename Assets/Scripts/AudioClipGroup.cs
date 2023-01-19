@@ -5,46 +5,41 @@ using UnityEngine;
 
 public class AudioClipGroup : ScriptableObject
 {
-    public List<AudioClip> AudioClips;
+    [Range(0, 2)]
+    public float VolumeMin = 1f;
+    [Range(0, 2)]
+    public float VolumeMax = 1f;
+    [Range(0, 2)]
+    public float PitchMin = 1f;
+    [Range(0, 2)]
+    public float PitchMax = 1f;
+    public float Cooldown = 0.1f;
 
-    [Range(0, 2)]
-    public float VolumeMin = 1;
-    [Range(0, 2)]
-    public float VolumeMax = 1;
-    [Range(0, 1)]
-    public float PitchMin = 0;
-    [Range(0, 1)]
-    public float PitchMax = 0;
-    public float Cooldown = 0;
-    private static float nextPlayTime = 0;
+    public List<AudioClip> Clips;
+
+    private float timestamp;
+
+    private void OnEnable()
+    {
+        timestamp = 0;
+    }
 
     public void Play()
     {
-        Play(AudioSourcePool.instance.GetSource());
-    }
-
-    public void PlayAtIndex(int index)
-    {
-        PlayAtIndex(AudioSourcePool.instance.GetSource(), index);
+        if (AudioSourcePool.Instance == null) return;
+        Play(AudioSourcePool.Instance.GetSource());
     }
 
     public void Play(AudioSource source)
     {
-        if (nextPlayTime > Time.time) return;
-        source.clip = AudioClips[Random.Range(0, AudioClips.Count)];
-        source.volume = Random.Range(VolumeMin, VolumeMax);
-        //source.pitch = Random.Range(PitchMin, PitchMax);
-        source.PlayOneShot(source.clip);
-        nextPlayTime = Time.time + Cooldown;
-    }
+        if (timestamp > Time.unscaledTime) return;
+        if (Clips.Count <= 0) return;
+        timestamp = Time.unscaledTime + Cooldown;
 
-    public void PlayAtIndex(AudioSource source, int index)
-    {
-        if (nextPlayTime > Time.time) return;
-        source.clip = AudioClips[index];
         source.volume = Random.Range(VolumeMin, VolumeMax);
-        //source.pitch = Random.Range(PitchMin, PitchMax);
-        source.PlayOneShot(source.clip);
-        nextPlayTime = Time.time + Cooldown;
+        source.pitch = Random.Range(PitchMin, PitchMax);
+        source.clip = Clips[Random.Range(0, Clips.Count)];
+        source.Play();
     }
+    
 }

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f6de6f2710f8884c91ddc78835dd557, type: 3}
   m_Name: Death
   m_EditorClassIdentifier: 
-  AudioClips:
+  VolumeMin: 0.5
+  VolumeMax: 0.5
+  PitchMin: 1
+  PitchMax: 1
+  Cooldown: 0.1
+  Clips:
   - {fileID: 8300000, guid: 4bcbf7248a73b5d4cb0548cc3f6fb122, type: 3}
-  VolumeMin: 1
-  VolumeMax: 1
-  PitchMin: 0
-  PitchMax: 0
-  Cooldown: 0

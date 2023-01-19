@@ -10,14 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f6de6f2710f8884c91ddc78835dd557, type: 3}
-  m_Name: Steps
+  m_Name: Fireball hit
   m_EditorClassIdentifier: 
-  VolumeMin: 0.14
-  VolumeMax: 0.14
-  PitchMin: 0.68
-  PitchMax: 0.68
-  Cooldown: 0.4
+  VolumeMin: 0.2
+  VolumeMax: 0.2
+  PitchMin: 1
+  PitchMax: 1
+  Cooldown: 0.1
   Clips:
-  - {fileID: 8300000, guid: bed0ba69134d95e47bc3e506e7aa1034, type: 3}
-  - {fileID: 8300000, guid: 39866591848529c4b8d52b8ce1f4e192, type: 3}
-  - {fileID: 8300000, guid: 3e4c93a0a6e37b443b0bdeff4b4a1b3f, type: 3}
+  - {fileID: 8300000, guid: bd017a4851ab2494790ce82b57343059, type: 3}

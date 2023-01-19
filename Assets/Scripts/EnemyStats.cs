@@ -8,12 +8,11 @@ public class EnemyStats : MonoBehaviour
     public float speed; //LINK TO ENEMYMOVEMENT MOVEMENTSPEED
     public float damage;
     private EnemySpawner spawner;
-    private AudioSource audioSource;
+    public AudioClipGroup hitSounds;
+    public AudioClipGroup deathSound;
     private float score;
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-
         spawner = EnemySpawner.Instance;
         float currentWave = (float)spawner.currentWave / 10; //Scaling here, change the number value to change scaling, Smaller number is tougher scaling, higher is easier scaling
         health += currentWave;
@@ -32,9 +31,10 @@ public class EnemyStats : MonoBehaviour
     public void Hit(float damage)
     {
         health -= damage;
+        hitSounds?.Play();
         if (health <= 0)
         {
-            audioSource.Play();
+            deathSound?.Play();
             GameObject.Destroy(gameObject);
             spawner.enemiesAlive--;
             Player.Instance.Score = Player.Instance.Score + score;

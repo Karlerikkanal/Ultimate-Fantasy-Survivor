@@ -16,7 +16,7 @@ public class UpgradePresenter : MonoBehaviour
 
     public void ClickPurchase()
     {
-        purchaseSound?.PlayAtIndex(0);
+        //purchaseSound?.PlayAtIndex(0);
     }
     public int price;
     public int level;

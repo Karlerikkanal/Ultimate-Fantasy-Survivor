@@ -16,7 +16,7 @@ public class IgUpgradePresenter : MonoBehaviour
 
     public void ClickPurchase()
     {
-        purchaseSound?.PlayAtIndex(0);
+        purchaseSound?.Play();
         GameHUD.Instance.ResumeGame(true);
     }
 

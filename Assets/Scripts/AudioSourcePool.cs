@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class AudioSourcePool : MonoBehaviour
 {
-    public static AudioSourcePool instance;
+    public static AudioSourcePool Instance;
+
     public AudioSource AudioSourcePrefab;
-    public List<AudioSource> audioSources;
+
+    private List<AudioSource> audioSources;
 
     private void Awake()
     {
-        instance = this;
+        Instance = this;
         audioSources = new List<AudioSource>();
     }
 
@@ -23,8 +25,8 @@ public class AudioSourcePool : MonoBehaviour
                 return source;
             }
         }
-        AudioSource new_source = GameObject.Instantiate(AudioSourcePrefab);
-        audioSources.Add(new_source);
-        return new_source;
+        AudioSource newSource = GameObject.Instantiate(AudioSourcePrefab, this.transform);
+        audioSources.Add(newSource);
+        return newSource;
     }
 }

@@ -10,7 +10,6 @@ public class GameHUD : MonoBehaviour
     public Image ArmorBar;
     public Image XpBar;
     public AudioClipGroup menuSounds;
-    public AudioClipGroup fightSound;
 
     public GameObject PausePanel;
     public TextMeshProUGUI CurrentScoreNumberText;
@@ -22,7 +21,6 @@ public class GameHUD : MonoBehaviour
 
     public TextMeshProUGUI LevelText;
     public TextMeshProUGUI NextLevelText;
-    private AudioSource audioSource;
 
     private void Awake()
     {
@@ -35,8 +33,6 @@ public class GameHUD : MonoBehaviour
         XpBar.fillAmount = 0f;
         RestartPanel.SetActive(false);
         PausePanel.SetActive(false);
-        fightSound?.Play();
-        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -100,14 +96,12 @@ public class GameHUD : MonoBehaviour
 
     public void RestartPressed()
     {
-        //fightSound?.Play();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         RestartPanel.SetActive(false);
     }
 
     public void ShowLosePanel()
     {
-        audioSource.Play();
         RestartPanel.SetActive(true);
         Player.Instance.gameObject.SetActive(false);
         if (PlayerPrefs.HasKey("money"))
@@ -127,7 +121,7 @@ public class GameHUD : MonoBehaviour
 
     public void Click()
     {
-        menuSounds.PlayAtIndex(1);
+        menuSounds?.Play();
     }
 
     public void ResumeButtonClicked() //Eraldi selleks, sest kui nupuga pannakse resume, siis boolean ei muutu, kuid on vaja et ta muutuks

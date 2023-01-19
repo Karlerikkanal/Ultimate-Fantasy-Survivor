@@ -12,12 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f6de6f2710f8884c91ddc78835dd557, type: 3}
   m_Name: Hit
   m_EditorClassIdentifier: 
-  AudioClips:
-  - {fileID: 8300000, guid: 7dd397c947611a7459a27c38f6ea1dac, type: 3}
-  - {fileID: 8300000, guid: f239ae9a5cb826a48bd6fc5a10bfbbcf, type: 3}
+  VolumeMin: 0.2
+  VolumeMax: 0.2
+  PitchMin: 1
+  PitchMax: 1
+  Cooldown: 0.01
+  Clips:
   - {fileID: 8300000, guid: 2a454bb4d494bd0478bb01837492169a, type: 3}
-  VolumeMin: 1
-  VolumeMax: 1
-  PitchMin: 0
-  PitchMax: 0
-  Cooldown: 0

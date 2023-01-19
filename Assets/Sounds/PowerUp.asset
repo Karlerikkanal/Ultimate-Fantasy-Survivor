@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f6de6f2710f8884c91ddc78835dd557, type: 3}
   m_Name: PowerUp
   m_EditorClassIdentifier: 
-  AudioClips:
+  VolumeMin: 0.5
+  VolumeMax: 0.5
+  PitchMin: 1
+  PitchMax: 1
+  Cooldown: 0.1
+  Clips:
   - {fileID: 8300000, guid: 41281ea3dd1ba104f80a5eb01ae5e628, type: 3}
   - {fileID: 8300000, guid: 4119f4036b7dae642b99b6c460bfcb6c, type: 3}
   - {fileID: 8300000, guid: bb90c0f0d5868bf448fa8626dbb4c25b, type: 3}
-  VolumeMin: 1
-  VolumeMax: 1
-  PitchMin: 0
-  PitchMax: 0
-  Cooldown: 0
