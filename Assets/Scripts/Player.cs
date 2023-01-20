@@ -204,6 +204,7 @@ public class Player : MonoBehaviour
 
     public void isDead()
     {
+        animator.SetBool("IsDead", true);
         GameHUD.Instance.ShowLosePanel();
         deathSound?.Play();
     }

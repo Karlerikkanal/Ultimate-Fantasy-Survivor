@@ -42,4 +42,13 @@ public class EnemyMovement : MonoBehaviour
         rb.MovePosition(transform.position + (direction * MovementSpeed * Time.deltaTime));
     }
 
+    // for death animation
+    public void isDead()
+    {
+        anim.SetBool("enemyDead", true);
+        
+        //Debug.Log("ENEMY ON DEAD");
+    }
+    
+
 }

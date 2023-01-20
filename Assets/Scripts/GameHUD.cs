@@ -103,6 +103,7 @@ public class GameHUD : MonoBehaviour
     public void ShowLosePanel()
     {
         RestartPanel.SetActive(true);
+        //Destroy(Player.Instance.gameObject, 1f);
         Player.Instance.gameObject.SetActive(false);
         if (PlayerPrefs.HasKey("money"))
         {
