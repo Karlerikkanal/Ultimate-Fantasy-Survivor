@@ -89877,13 +89877,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd757aeeddd5d9d45aabb1e494f58d04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet:
+  bulletType:
   - {fileID: 1933656280698490099, guid: f2c0e0a090156a742bb926e3ac644366, type: 3}
   - {fileID: 952092891735865509, guid: 78ebffbe7f10d5240ba7d859ab712a1d, type: 3}
   bulletTransform: {fileID: 18151340}
   arrowSounds: {fileID: 11400000, guid: 6b886825f2ee95f4dbd5edaf109201b0, type: 2}
   canFire: 1
   timeBetweenFiring: 0.3
+  numShots: 1
+  angle: 0
 --- !u!1 &1559677382
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ public class EnemyMovement : MonoBehaviour
     private GameObject player;
     public float MovementSpeed = 1f;
     public Vector2 movement;
-    public EnemyStats stats;
+    private EnemyStats stats;
 
     private Animator anim;
 
@@ -42,8 +42,6 @@ public class EnemyMovement : MonoBehaviour
     public void isDead()
     {
         anim.SetBool("enemyDead", true);
-        
-        //Debug.Log("ENEMY ON DEAD");
     }
     
 

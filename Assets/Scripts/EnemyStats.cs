@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyStats : MonoBehaviour
 {
     public float health; 
-    public float speed; //LINK TO ENEMYMOVEMENT MOVEMENTSPEED
+    public float speed;
     public float damage;
     public float droprate;
     public GameObject[] powerups;
@@ -13,8 +13,6 @@ public class EnemyStats : MonoBehaviour
     public AudioClipGroup hitSounds;
     public AudioClipGroup deathSound;
     private float score;
-    // enemymovement
-    public EnemyMovement movement;
 
     void Start()
     {
@@ -24,8 +22,6 @@ public class EnemyStats : MonoBehaviour
         speed += currentWave / 2;
         damage += currentWave;
         score = health * 10;
-        // enemymovement 
-        movement = GetComponent<EnemyMovement>();
     }
     
 
@@ -44,7 +40,7 @@ public class EnemyStats : MonoBehaviour
             deathSound?.Play();
             GetComponent<EnemyMovement>().enabled = false;
             GetComponent<BoxCollider2D>().enabled = false;
-            movement.isDead();
+            GetComponent<EnemyMovement>().isDead();
             Destroy(gameObject, 1f);
             Vector3 coords = gameObject.transform.position;
             GenerateDrop(coords);

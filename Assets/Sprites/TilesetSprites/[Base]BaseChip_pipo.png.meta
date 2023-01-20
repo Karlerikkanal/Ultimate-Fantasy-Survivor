@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -22533,8 +22533,8 @@ TextureImporter:
       '[Base]BaseChip_pipo_564': -437646819
       '[Base]BaseChip_pipo_1059': -1989414961
       '[Base]BaseChip_pipo_61': 1146770750
-      '[Base]BaseChip_pipo_605': -56320736
       '[Base]BaseChip_pipo_277': -1645149608
+      '[Base]BaseChip_pipo_605': -56320736
       '[Base]BaseChip_pipo_83': 1755768513
       '[Base]BaseChip_pipo_644': 292996101
       '[Base]BaseChip_pipo_619': 229479302
@@ -22603,8 +22603,8 @@ TextureImporter:
       '[Base]BaseChip_pipo_504': 1169473378
       '[Base]BaseChip_pipo_651': 1160218844
       '[Base]BaseChip_pipo_58': 33531462
-      '[Base]BaseChip_pipo_184': 1977298070
       '[Base]BaseChip_pipo_625': 1732930798
+      '[Base]BaseChip_pipo_184': 1977298070
       '[Base]BaseChip_pipo_234': -1936443455
       '[Base]BaseChip_pipo_461': 1940704335
       '[Base]BaseChip_pipo_819': 71060730
@@ -22624,9 +22624,9 @@ TextureImporter:
       '[Base]BaseChip_pipo_679': 188292403
       '[Base]BaseChip_pipo_853': 1370279388
       '[Base]BaseChip_pipo_37': -2012377961
-      '[Base]BaseChip_pipo_307': 977487074
       '[Base]BaseChip_pipo_598': 2000550645
       '[Base]BaseChip_pipo_974': -1212391108
+      '[Base]BaseChip_pipo_307': 977487074
       '[Base]BaseChip_pipo_494': 928058788
       '[Base]BaseChip_pipo_155': -432627519
       '[Base]BaseChip_pipo_719': -473971404
@@ -22727,8 +22727,8 @@ TextureImporter:
       '[Base]BaseChip_pipo_415': -1529990291
       '[Base]BaseChip_pipo_601': -1921535946
       '[Base]BaseChip_pipo_6': 1044163679
-      '[Base]BaseChip_pipo_522': 76783462
       '[Base]BaseChip_pipo_956': 1057711316
+      '[Base]BaseChip_pipo_522': 76783462
       '[Base]BaseChip_pipo_62': 677154288
       '[Base]BaseChip_pipo_219': -1144910267
       '[Base]BaseChip_pipo_325': 1061836125
@@ -22736,23 +22736,23 @@ TextureImporter:
       '[Base]BaseChip_pipo_233': 264609150
       '[Base]BaseChip_pipo_402': 796270293
       '[Base]BaseChip_pipo_1019': 558985870
+      '[Base]BaseChip_pipo_1034': -51792902
       '[Base]BaseChip_pipo_337': 163702645
       '[Base]BaseChip_pipo_272': -1444149921
       '[Base]BaseChip_pipo_858': -360938285
-      '[Base]BaseChip_pipo_1034': -51792902
       '[Base]BaseChip_pipo_493': 460597770
-      '[Base]BaseChip_pipo_220': 2012890955
-      '[Base]BaseChip_pipo_348': -271948717
       '[Base]BaseChip_pipo_818': 1951231167
-      '[Base]BaseChip_pipo_816': -72078957
-      '[Base]BaseChip_pipo_918': 1655771677
+      '[Base]BaseChip_pipo_220': 2012890955
       '[Base]BaseChip_pipo_1052': -882385163
-      '[Base]BaseChip_pipo_983': -1498894205
+      '[Base]BaseChip_pipo_348': -271948717
+      '[Base]BaseChip_pipo_918': 1655771677
+      '[Base]BaseChip_pipo_816': -72078957
       '[Base]BaseChip_pipo_559': 1333410285
-      '[Base]BaseChip_pipo_781': 1510767457
-      '[Base]BaseChip_pipo_210': 64630323
-      '[Base]BaseChip_pipo_203': -710403416
       '[Base]BaseChip_pipo_796': 1367044982
+      '[Base]BaseChip_pipo_210': 64630323
+      '[Base]BaseChip_pipo_781': 1510767457
+      '[Base]BaseChip_pipo_203': -710403416
+      '[Base]BaseChip_pipo_983': -1498894205
       '[Base]BaseChip_pipo_393': 225960435
       '[Base]BaseChip_pipo_161': -888325088
       '[Base]BaseChip_pipo_420': -833505082
@@ -22761,9 +22761,9 @@ TextureImporter:
       '[Base]BaseChip_pipo_142': 1107983937
       '[Base]BaseChip_pipo_758': -1826072013
       '[Base]BaseChip_pipo_582': -1667281718
-      '[Base]BaseChip_pipo_787': -2093879434
-      '[Base]BaseChip_pipo_436': 413406329
       '[Base]BaseChip_pipo_933': -97730047
+      '[Base]BaseChip_pipo_436': 413406329
+      '[Base]BaseChip_pipo_787': -2093879434
       '[Base]BaseChip_pipo_449': -412280761
       '[Base]BaseChip_pipo_751': 1723602791
       '[Base]BaseChip_pipo_732': -1138266311
@@ -22775,11 +22775,11 @@ TextureImporter:
       '[Base]BaseChip_pipo_99': -411410425
       '[Base]BaseChip_pipo_767': -499917175
       '[Base]BaseChip_pipo_46': 1292137671
-      '[Base]BaseChip_pipo_635': -1204828189
+      '[Base]BaseChip_pipo_939': -257570899
       '[Base]BaseChip_pipo_526': -1008212443
       '[Base]BaseChip_pipo_704': -689951209
+      '[Base]BaseChip_pipo_635': -1204828189
       '[Base]BaseChip_pipo_713': 1114629892
-      '[Base]BaseChip_pipo_939': -257570899
       '[Base]BaseChip_pipo_586': -746615768
       '[Base]BaseChip_pipo_408': -1103477885
       '[Base]BaseChip_pipo_205': -796180323
@@ -23001,8 +23001,8 @@ TextureImporter:
       '[Base]BaseChip_pipo_432': -2115269641
       '[Base]BaseChip_pipo_392': 1690988628
       '[Base]BaseChip_pipo_33': 1926786055
-      '[Base]BaseChip_pipo_177': 656774464
       '[Base]BaseChip_pipo_374': -1505223635
+      '[Base]BaseChip_pipo_177': 656774464
       '[Base]BaseChip_pipo_512': 1988019668
       '[Base]BaseChip_pipo_4': 626393703
       '[Base]BaseChip_pipo_920': 1873803701
@@ -23023,8 +23023,8 @@ TextureImporter:
       '[Base]BaseChip_pipo_91': 1385591123
       '[Base]BaseChip_pipo_391': -625526889
       '[Base]BaseChip_pipo_196': -1572909750
-      '[Base]BaseChip_pipo_165': -660877961
       '[Base]BaseChip_pipo_427': 1731592328
+      '[Base]BaseChip_pipo_165': -660877961
       '[Base]BaseChip_pipo_447': 1115967134
       '[Base]BaseChip_pipo_118': 647254550
       '[Base]BaseChip_pipo_411': -2097535421
@@ -23034,20 +23034,21 @@ TextureImporter:
       '[Base]BaseChip_pipo_179': 1967277813
       '[Base]BaseChip_pipo_944': 1007576427
       '[Base]BaseChip_pipo_634': 386865406
-      '[Base]BaseChip_pipo_916': -904931263
       '[Base]BaseChip_pipo_971': -1773159145
-      '[Base]BaseChip_pipo_599': 1375106288
+      '[Base]BaseChip_pipo_1021': 1933128091
+      '[Base]BaseChip_pipo_916': -904931263
       '[Base]BaseChip_pipo_703': 1131341995
       '[Base]BaseChip_pipo_521': 196224474
       '[Base]BaseChip_pipo_886': 1107422792
       '[Base]BaseChip_pipo_935': -2103804632
       '[Base]BaseChip_pipo_441': 1892912869
       '[Base]BaseChip_pipo_70': 486185908
-      '[Base]BaseChip_pipo_760': 1220830011
-      '[Base]BaseChip_pipo_532': -621823391
-      '[Base]BaseChip_pipo_960': -2014986856
       '[Base]BaseChip_pipo_949': 1027607624
+      '[Base]BaseChip_pipo_532': -621823391
+      '[Base]BaseChip_pipo_760': 1220830011
+      '[Base]BaseChip_pipo_599': 1375106288
       '[Base]BaseChip_pipo_245': 420836354
+      '[Base]BaseChip_pipo_960': -2014986856
       '[Base]BaseChip_pipo_654': 1840252048
       '[Base]BaseChip_pipo_232': 821280373
       '[Base]BaseChip_pipo_967': -718533326
@@ -23061,10 +23062,9 @@ TextureImporter:
       '[Base]BaseChip_pipo_260': 1061762510
       '[Base]BaseChip_pipo_386': 1650706774
       '[Base]BaseChip_pipo_593': 154189188
-      '[Base]BaseChip_pipo_831': -557959393
       '[Base]BaseChip_pipo_843': -923630552
       '[Base]BaseChip_pipo_953': 1094344668
-      '[Base]BaseChip_pipo_1021': 1933128091
+      '[Base]BaseChip_pipo_831': -557959393
       '[Base]BaseChip_pipo_500': -221645557
       '[Base]BaseChip_pipo_195': 453126627
       '[Base]BaseChip_pipo_910': -1852031674
@@ -23074,8 +23074,8 @@ TextureImporter:
       '[Base]BaseChip_pipo_969': -1392419691
       '[Base]BaseChip_pipo_132': 1745770771
       '[Base]BaseChip_pipo_69': -1129210610
-      '[Base]BaseChip_pipo_804': -1102970370
       '[Base]BaseChip_pipo_973': -1939862263
+      '[Base]BaseChip_pipo_804': -1102970370
       '[Base]BaseChip_pipo_490': 1482903602
       '[Base]BaseChip_pipo_202': 1765310903
       '[Base]BaseChip_pipo_368': -311585460
@@ -23090,9 +23090,9 @@ TextureImporter:
       '[Base]BaseChip_pipo_316': -1053632074
       '[Base]BaseChip_pipo_65': 98363074
       '[Base]BaseChip_pipo_183': -1763005460
-      '[Base]BaseChip_pipo_227': -1674274995
       '[Base]BaseChip_pipo_566': -647675896
       '[Base]BaseChip_pipo_689': -449154920
+      '[Base]BaseChip_pipo_227': -1674274995
       '[Base]BaseChip_pipo_729': 827468288
       '[Base]BaseChip_pipo_903': 1743804466
       '[Base]BaseChip_pipo_259': -96650360
@@ -23103,17 +23103,18 @@ TextureImporter:
       '[Base]BaseChip_pipo_560': 1425494142
       '[Base]BaseChip_pipo_208': 894827150
       '[Base]BaseChip_pipo_262': -875341803
-      '[Base]BaseChip_pipo_620': -1781179264
       '[Base]BaseChip_pipo_638': -891420847
       '[Base]BaseChip_pipo_872': 846903063
+      '[Base]BaseChip_pipo_1062': 799665334
       '[Base]BaseChip_pipo_783': -794730790
       '[Base]BaseChip_pipo_414': -1569967773
-      '[Base]BaseChip_pipo_1062': 799665334
       '[Base]BaseChip_pipo_868': 1646945875
       '[Base]BaseChip_pipo_303': 385936359
       '[Base]BaseChip_pipo_963': -1383617689
-      '[Base]BaseChip_pipo_585': -1528182058
+      '[Base]BaseChip_pipo_952': 1330303986
       '[Base]BaseChip_pipo_672': -930532690
+      '[Base]BaseChip_pipo_620': -1781179264
+      '[Base]BaseChip_pipo_585': -1528182058
       '[Base]BaseChip_pipo_265': 868617086
       '[Base]BaseChip_pipo_600': -1529099807
       '[Base]BaseChip_pipo_206': 2096924965
@@ -23121,17 +23122,16 @@ TextureImporter:
       '[Base]BaseChip_pipo_1040': -1990067770
       '[Base]BaseChip_pipo_11': -86000457
       '[Base]BaseChip_pipo_740': 976296046
-      '[Base]BaseChip_pipo_952': 1330303986
-      '[Base]BaseChip_pipo_958': -447788047
       '[Base]BaseChip_pipo_975': -1458336648
+      '[Base]BaseChip_pipo_958': -447788047
       '[Base]BaseChip_pipo_688': -2083409623
       '[Base]BaseChip_pipo_367': 888581711
       '[Base]BaseChip_pipo_27': -521535032
       '[Base]BaseChip_pipo_815': 236748536
-      '[Base]BaseChip_pipo_448': -1043737885
+      '[Base]BaseChip_pipo_994': 904178933
       '[Base]BaseChip_pipo_510': 466705542
       '[Base]BaseChip_pipo_429': 44678104
-      '[Base]BaseChip_pipo_994': 904178933
+      '[Base]BaseChip_pipo_448': -1043737885
       '[Base]BaseChip_pipo_469': -733984701
       '[Base]BaseChip_pipo_417': 921948491
       '[Base]BaseChip_pipo_216': 1896391110
@@ -23142,10 +23142,10 @@ TextureImporter:
       '[Base]BaseChip_pipo_544': -759108432
       '[Base]BaseChip_pipo_467': 978322316
       '[Base]BaseChip_pipo_548': -1753005425
-      '[Base]BaseChip_pipo_523': -1105485660
+      '[Base]BaseChip_pipo_923': 1771796832
       '[Base]BaseChip_pipo_280': -1068108649
       '[Base]BaseChip_pipo_765': -677034721
-      '[Base]BaseChip_pipo_923': 1771796832
+      '[Base]BaseChip_pipo_523': -1105485660
       '[Base]BaseChip_pipo_400': 1535516498
       '[Base]BaseChip_pipo_114': -1193640122
       '[Base]BaseChip_pipo_607': -2025823266
