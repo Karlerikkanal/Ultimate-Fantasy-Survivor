@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     public AudioClipGroup deathSound;
     public AudioClipGroup steppingSounds;
     public AudioClipGroup powerupSounds;
+    public AudioClipGroup levelupSounds;
+
 
     public float MovementSpeed = 150f;
     public Vector2 movement;
@@ -171,6 +173,7 @@ public class Player : MonoBehaviour
         if (XpNeededForNextLevel <= Xp)
         {
             Level += 1;
+            levelupSounds?.Play();
             GameHUD.Instance.PauseGame(true);
             // Xp overflowi jaoks
             Xp = Xp - XpNeededForNextLevel;

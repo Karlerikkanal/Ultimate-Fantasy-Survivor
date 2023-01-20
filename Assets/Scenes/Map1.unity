@@ -3824,6 +3824,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 559803335}
+<<<<<<< HEAD
+=======
+  - component: {fileID: 559803334}
+>>>>>>> karlerik
   - component: {fileID: 559803336}
   m_Layer: 0
   m_Name: Controllers
@@ -3856,10 +3860,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 559803333}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: 0a99525f9dd8ecc4899036f712b3c15a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   AudioSourcePrefab: {fileID: 1702189673627062588, guid: d02dd2273ef09a446972e3262123017a, type: 3}
+=======
+  m_Script: {fileID: 11500000, guid: e81e84b06759ea64db6a6fe2e24b093f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+>>>>>>> karlerik
 --- !u!1 &573171772
 GameObject:
   m_ObjectHideFlags: 0
@@ -98555,6 +98565,7 @@ MonoBehaviour:
   deathSound: {fileID: 11400000, guid: d8c63d211ba597d40a0fd93a1a709fff, type: 2}
   steppingSounds: {fileID: 11400000, guid: e6ce44f9439155c4a87e4deb060fc4e9, type: 2}
   powerupSounds: {fileID: 11400000, guid: 6640b8b1cefa2ff4192dbe62afaf3c5f, type: 2}
+  levelupSounds: {fileID: 11400000, guid: 6b38ded91844f584d8d8f8451336febf, type: 2}
   MovementSpeed: 150
   movement: {x: 0, y: 0}
   animator: {fileID: 2073788891}

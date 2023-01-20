@@ -166,6 +166,15 @@ MonoBehaviour:
   health: 0.1
   speed: 4
   damage: 1
+  droprate: 20
+  powerups:
+  - {fileID: 3957845777670259260, guid: 84e62e983baaf894db237cbb491ebcac, type: 3}
+  - {fileID: 6417712763702266617, guid: 2c5190eeb73789a41bf5eceabc3705c6, type: 3}
+  - {fileID: 1131529367646808718, guid: f4ef07f69102bc246800ec70e9d3373c, type: 3}
+  - {fileID: 6815402688445174062, guid: 0a1252b998f4d8b4f9f97259acd56f4b, type: 3}
+  - {fileID: 3802046930418538863, guid: 85ef350737e95b043a30f5a3c9680699, type: 3}
+  - {fileID: 4004471981761959476, guid: 36105a6f1d1f6704296b3e8c5e8ddb1a, type: 3}
+  - {fileID: 4618152279538518587, guid: 3d8eddfc21254dc4f872357806059218, type: 3}
   hitSounds: {fileID: 11400000, guid: 8352827d802297e418fe159c843c4bd9, type: 2}
   deathSound: {fileID: 11400000, guid: 50be6159164be5542b11257a77ac55a7, type: 2}
 --- !u!95 &-871254671179952426
