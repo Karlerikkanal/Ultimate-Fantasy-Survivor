@@ -1,64 +1,88 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
+[System.Serializable]
 public class Shooting : MonoBehaviour
 {
     private Camera mainCam;
     private Vector3 mousePos;
-    public List<GameObject> bullet;
+
+    public List<GameObject> bulletType;
+    private GameObject bullet;
+
     public Transform bulletTransform;
+
     public AudioClipGroup arrowSounds;
+
     public bool canFire;
-    private float timer;
-    public float timeBetweenFiring;
+
+    private float delayFiring;
+    [SerializeField]
+    private float timeBetweenFiring;
+    private float bulletSpeed;
+
     private float rapidFireTimer;
-    private float rapidFireSpeed;
     private bool rapidFire = false;
-    private float rightSpeed;
-    private bool machineGun = false;
+
+    public int numShots = 1;// Number of shots fired;
+    public float angle; // Angle between shots
 
 
-    // Start is called before the first frame update
     void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        //audioSource = GetComponent<AudioSource>();
+
+        //Setting bullet properties for shooting
+        bullet = bulletType[1];
+        Bullet bulletProperties = bullet.GetComponent<Bullet>();
+
+        timeBetweenFiring = bulletProperties.timeBetweenFiring;
+        bulletSpeed = bulletProperties.Speed;
+        angle = bulletProperties.angle;
+
         if (PlayerPrefs.HasKey("firerateLevel"))
         {
-            timeBetweenFiring -= ((float)PlayerPrefs.GetInt("firerateLevel") * 0.04f);
+            timeBetweenFiring *= (100 - ((float)PlayerPrefs.GetInt("firerateLevel") * 4))/100;
         }
 
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (rapidFire)
-        {
-            rapidFireTimer += Time.deltaTime;
-            if (rapidFireTimer > 5.00)
-            {
-                rapidFire = false;
-                timeBetweenFiring = rightSpeed;
-                rapidFireTimer = 0;
-            }
-        }
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
-
         Vector3 rotation = mousePos - transform.position;
-
+        float distance = Vector2.Distance(mousePos, transform.position);
         float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg; // we are rotating over z axis
-
         transform.rotation = Quaternion.Euler(0, 0, rotZ);
+
 
         if (!canFire)
         {
-            timer += Time.deltaTime; 
-            if (timer > timeBetweenFiring) // interval between bullets
+            if (rapidFire)
             {
-                canFire = true;
-                timer = 0;
+                rapidFireTimer += Time.deltaTime;
+                if (rapidFireTimer > 5.0f)
+                {
+                    rapidFire = false;
+                    rapidFireTimer = 0;
+                }
+
+                delayFiring += Time.deltaTime;
+                if (delayFiring > timeBetweenFiring / 2) // interval between bullets / 2
+                {
+                    canFire = true;
+                    delayFiring = 0;
+                }
+            }
+            else
+            {
+                delayFiring += Time.deltaTime;
+                if (delayFiring > timeBetweenFiring) // interval between bullets
+                {
+                    canFire = true;
+                    delayFiring = 0;
+                }
             }
         }
 
@@ -66,39 +90,29 @@ public class Shooting : MonoBehaviour
         {
             canFire = false;
             arrowSounds?.Play();
-            if (machineGun)
+
+            for (int i = 0; i < numShots; i++)
             {
-                Instantiate(bullet[1], bulletTransform.position, Quaternion.identity);
-            }
-            else
-            {
-                Instantiate(bullet[0], bulletTransform.position, Quaternion.identity);
+                GameObject bulletClone = Instantiate(bullet, bulletTransform.transform.position, transform.rotation);
+                float spreadAngle = 0;
+                if (numShots > 1)
+                {
+                    spreadAngle = Random.Range(-angle, angle);
+                } 
+
+                var x = mousePos.x - bulletClone.transform.position.x;
+                var y = mousePos.y - bulletClone.transform.position.y;
+                float rotateAngle = spreadAngle + (Mathf.Atan2(y, x) * Mathf.Rad2Deg);
+
+                var MovementDirection = new Vector2(Mathf.Cos(rotateAngle * Mathf.Deg2Rad), Mathf.Sin(rotateAngle * Mathf.Deg2Rad)).normalized;
+
+                bulletClone.GetComponent<Rigidbody2D>().velocity = MovementDirection * bulletSpeed;
             }
         }
-
-    }
-
-    public void MachineGunShooting()
-    {
-        if (rapidFire)
-        {
-            timeBetweenFiring = rightSpeed * 0.6f;
-            rightSpeed = timeBetweenFiring;
-            Debug.Log("timebetweenfiring is" + timeBetweenFiring);
-        }
-        else timeBetweenFiring = timeBetweenFiring * 0.6f;
-        Debug.Log("We are changing the fire rate!");
-        machineGun = true;
-
     }
 
     public void rapidFirePowerup()
     {
-        rapidFireTimer += Time.deltaTime;
-        rapidFireSpeed = timeBetweenFiring / 2;
-        rightSpeed = timeBetweenFiring;
-        Debug.Log("Rightspeed is" + rightSpeed);
-        timeBetweenFiring = rapidFireSpeed;
         rapidFire = true;
     }
 }

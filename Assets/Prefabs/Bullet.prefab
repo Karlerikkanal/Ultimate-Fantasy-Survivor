@@ -30,6 +30,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.387, y: -0.246, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3431696153143555805, guid: 9a04ed14e05ba844a8f36a2a5efcde90, type: 3}
+  m_Sprite: {fileID: -8105548444599548535, guid: 9a04ed14e05ba844a8f36a2a5efcde90, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -125,6 +126,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 10
+  damage: 1
+  timeBetweenFiring: 0.3
+  angle: 5
 --- !u!50 &4363819280063264008
 Rigidbody2D:
   serializedVersion: 4

@@ -227,9 +227,7 @@ public class Player : MonoBehaviour
         {
             powerupSounds?.Play();
             Shooting shootingScript = GameObject.FindGameObjectWithTag("RotatePoint").GetComponent<Shooting>();
-            Debug.Log("Bullet interval before colliding: " + shootingScript.timeBetweenFiring);
             shootingScript.rapidFirePowerup();
-            Debug.Log("Bullet speed after colliding: " + shootingScript.timeBetweenFiring);
             GameObject.Destroy(collision.gameObject);
         }
 
