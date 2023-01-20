@@ -7,6 +7,8 @@ public class EnemyStats : MonoBehaviour
     public float health;
     public float speed; //LINK TO ENEMYMOVEMENT MOVEMENTSPEED
     public float damage;
+    public float droprate;
+    public GameObject[] powerups;
     private EnemySpawner spawner;
     private AudioSource audioSource;
     private float score;
@@ -35,11 +37,26 @@ public class EnemyStats : MonoBehaviour
         if (health <= 0)
         {
             audioSource.Play();
+            Vector3 coords = gameObject.transform.position;
             GameObject.Destroy(gameObject);
+            GenerateDrop(coords);
             spawner.enemiesAlive--;
             Player.Instance.Score = Player.Instance.Score + score;
             Player.Instance.Xp = Player.Instance.Xp + score;
         }
+    }
+
+    public void GenerateDrop(Vector3 pos)
+    {
+        float threshold = Random.Range(0f, 100f);
+        // Kui droprate nt 30 ja genereeritud arv on 29, siis tee drop
+        if (threshold <= droprate)
+        {
+            int generator = (int) Random.Range(0, powerups.Length);
+            GameObject powerup = powerups[generator];
+            Instantiate(powerup, pos, Quaternion.identity);
+        }
+        else return;
     }
 
 

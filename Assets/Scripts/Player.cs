@@ -11,10 +11,7 @@ public class Player : MonoBehaviour
     public AudioClipGroup hitSounds;
     public AudioClipGroup steppingSounds;
     public AudioClipGroup powerupSounds;
-    //public AudioClip hitSound;
-    //public AudioClip stepSound;
-    //private AudioSource audioSource;
-    //public AudioClip deathsound;
+    public AudioClipGroup levelupSounds;
 
     public float MovementSpeed = 150f;
     public Vector2 movement;
@@ -119,7 +116,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        //audioSource = GetComponent<AudioSource>();
         // for invulnerabilty powerup
         rend = GetComponent<SpriteRenderer>();
 
@@ -179,6 +175,7 @@ public class Player : MonoBehaviour
         if (XpNeededForNextLevel <= Xp)
         {
             Level += 1;
+            levelupSounds?.Play();
             GameHUD.Instance.PauseGame(true);
             // Xp overflowi jaoks
             Xp = Xp - XpNeededForNextLevel;

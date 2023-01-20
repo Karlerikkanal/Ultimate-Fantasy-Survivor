@@ -167,6 +167,12 @@ MonoBehaviour:
   health: 50
   speed: 1.5
   damage: 1
+  droprate: 100
+  powerups:
+  - {fileID: 1131529367646808718, guid: f4ef07f69102bc246800ec70e9d3373c, type: 3}
+  - {fileID: 6417712763702266617, guid: 2c5190eeb73789a41bf5eceabc3705c6, type: 3}
+  - {fileID: 3957845777670259260, guid: 84e62e983baaf894db237cbb491ebcac, type: 3}
+  - {fileID: 6815402688445174062, guid: 0a1252b998f4d8b4f9f97259acd56f4b, type: 3}
 --- !u!95 &-871254671179952426
 Animator:
   serializedVersion: 4
