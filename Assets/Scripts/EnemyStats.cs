@@ -47,7 +47,6 @@ public class EnemyStats : MonoBehaviour
             movement.isDead();
             Destroy(gameObject, 1f);
             Vector3 coords = gameObject.transform.position;
-            GameObject.Destroy(gameObject);
             GenerateDrop(coords);
             spawner.enemiesAlive--;
             Player.Instance.Score = Player.Instance.Score + score;
