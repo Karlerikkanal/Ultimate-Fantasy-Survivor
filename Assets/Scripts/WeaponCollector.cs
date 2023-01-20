@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WeaponCollector : MonoBehaviour
 {
+    /*
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
@@ -18,5 +19,5 @@ public class WeaponCollector : MonoBehaviour
             //GameObject.Destroy(collision.gameObject);
 
         }
-    }
+    }*/
 }
