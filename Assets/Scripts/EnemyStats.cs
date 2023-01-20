@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyStats : MonoBehaviour
 {
-    public float health;
+    public float health; 
     public float speed; //LINK TO ENEMYMOVEMENT MOVEMENTSPEED
     public float damage;
     public float droprate;
@@ -13,6 +13,9 @@ public class EnemyStats : MonoBehaviour
     public AudioClipGroup hitSounds;
     public AudioClipGroup deathSound;
     private float score;
+    // enemymovement
+    public EnemyMovement movement;
+
     void Start()
     {
         spawner = EnemySpawner.Instance;
@@ -21,13 +24,15 @@ public class EnemyStats : MonoBehaviour
         speed += currentWave / 2;
         damage += currentWave;
         score = health * 10;
+        // enemymovement 
+        movement = GetComponent<EnemyMovement>();
     }
     
 
 
     void Update()
     {
-        
+     
     }
 
     public void Hit(float damage)
@@ -37,6 +42,10 @@ public class EnemyStats : MonoBehaviour
         if (health <= 0)
         {
             deathSound?.Play();
+            GetComponent<EnemyMovement>().enabled = false;
+            GetComponent<BoxCollider2D>().enabled = false;
+            movement.isDead();
+            Destroy(gameObject, 1f);
             Vector3 coords = gameObject.transform.position;
             GameObject.Destroy(gameObject);
             GenerateDrop(coords);
@@ -58,6 +67,4 @@ public class EnemyStats : MonoBehaviour
         }
         else return;
     }
-
-
 }
