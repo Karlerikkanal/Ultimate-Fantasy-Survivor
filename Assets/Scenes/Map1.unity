@@ -99265,10 +99265,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealthRefill
       objectReference: {fileID: 0}
-    - target: {fileID: 6025034488005947020, guid: 85ef350737e95b043a30f5a3c9680699, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 09c6ae14488629d49997a0ed598b4fb2, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85ef350737e95b043a30f5a3c9680699, type: 3}
 --- !u!1001 &3544655203066499957
