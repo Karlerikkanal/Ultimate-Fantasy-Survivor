@@ -5,14 +5,11 @@ using UnityEngine;
 public class ExplosionParticle : MonoBehaviour
 {
     private ParticleSystem ps;
-    // Start is called before the first frame update
     void Start()
     {
         ps = GetComponent<ParticleSystem>();
-
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!ps.isPlaying)
@@ -20,5 +17,4 @@ public class ExplosionParticle : MonoBehaviour
             GameObject.Destroy(gameObject);
         }
     }
-
 }

@@ -2,16 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExplosiveBullet : MonoBehaviour
+public class BulletExplosive : MonoBehaviour
 {
-    private Vector3 mousePos;
-    private Camera mainCam;
-    private Rigidbody2D rb;
     public float Speed = 10f;
     public float damage = 1f;
     public float timeBetweenFiring = 0.5f;
     public float angle;
     public ExplosionParticle ParticlePrefab;
+    public AudioClipGroup hitSound;
     private CircleCollider2D circleCollider2D;
 
     private void Awake()
@@ -19,12 +17,24 @@ public class ExplosiveBullet : MonoBehaviour
         circleCollider2D = GetComponent<CircleCollider2D>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         EnemyStats enemy = collision.gameObject.GetComponent<EnemyStats>();
         if (enemy != null)
         {
-            enemy.Hit(damage);
+            Collider2D[] collisions = Physics2D.OverlapCircleAll(transform.position, circleCollider2D.radius);
+            int count = 0;
+            foreach (Collider2D collider in collisions)
+            {
+                EnemyStats enemy1 = collider.gameObject.GetComponent<EnemyStats>();
+                if (enemy1 != null)
+                {
+                    count++;
+                    hitSound?.Play();
+                    enemy1.Hit(damage);
+                }
+            }
+            Debug.Log(count);
             GameObject.Instantiate(ParticlePrefab, transform.position, Quaternion.identity);
             GameObject.Destroy(gameObject);
         }

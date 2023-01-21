@@ -28,7 +28,6 @@ public class Shooting : MonoBehaviour
     public int numShots = 1;// Number of shots fired;
     public float angle; // Angle between shots
 
-
     void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
