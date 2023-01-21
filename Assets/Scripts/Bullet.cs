@@ -12,6 +12,9 @@ public class Bullet : MonoBehaviour
     public AudioClipGroup hitSound;
     private CircleCollider2D circleCollider2D;
 
+    public AudioClipGroup bulletSound;
+
+
     private void Awake()
     {
         if (tag == "Explosive") circleCollider2D = GetComponent<CircleCollider2D>();
@@ -49,7 +52,10 @@ public class Bullet : MonoBehaviour
             if (enemy != null)
             {
                 enemy.Hit(damage);
-                GameObject.Destroy(gameObject);
+                if (tag != "Laser")
+                {
+                    GameObject.Destroy(gameObject);
+                }
             }
         }
     }
@@ -57,5 +63,10 @@ public class Bullet : MonoBehaviour
     private void OnBecameInvisible()
     {
         GameObject.Destroy(gameObject);
+    }
+
+    public void PlayBulletSound()
+    {
+        bulletSound?.Play();
     }
 }

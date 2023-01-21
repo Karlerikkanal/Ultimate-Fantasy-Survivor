@@ -12,10 +12,10 @@ public class Shooting : MonoBehaviour
 
     public List<GameObject> bulletType;
     private GameObject bullet;
+    private Bullet bulletProperties;
 
     public Transform bulletTransform;
 
-    public AudioClipGroup arrowSounds;
 
     public bool canFire;
 
@@ -35,8 +35,8 @@ public class Shooting : MonoBehaviour
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
         //Setting bullet properties for shooting
-        bullet = bulletType[1];
-        Bullet bulletProperties = bullet.GetComponent<Bullet>();
+        bullet = bulletType[0];
+        bulletProperties = bullet.GetComponent<Bullet>();
 
         timeBetweenFiring = bulletProperties.timeBetweenFiring;
         bulletSpeed = bulletProperties.Speed;
@@ -90,7 +90,7 @@ public class Shooting : MonoBehaviour
         if (Input.GetMouseButton(0) && canFire)
         {
             canFire = false;
-            arrowSounds?.Play();
+            bulletProperties.PlayBulletSound();
 
             for (int i = 0; i < numShots; i++)
             {

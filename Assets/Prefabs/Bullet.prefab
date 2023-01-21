@@ -129,6 +129,9 @@ MonoBehaviour:
   damage: 1
   timeBetweenFiring: 0.3
   angle: 5
+  ParticlePrefab: {fileID: 0}
+  hitSound: {fileID: 0}
+  bulletSound: {fileID: 11400000, guid: 6b886825f2ee95f4dbd5edaf109201b0, type: 2}
 --- !u!50 &4363819280063264008
 Rigidbody2D:
   serializedVersion: 4

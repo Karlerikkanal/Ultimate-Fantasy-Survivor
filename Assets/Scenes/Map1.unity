@@ -1242,6 +1242,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpgradeTab (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5748063261070900674, guid: cdfac0b98a61eca43b8581e45ea1447a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5748063261070900675, guid: cdfac0b98a61eca43b8581e45ea1447a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -98902,6 +98906,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpgradeTab (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5748063261070900674, guid: cdfac0b98a61eca43b8581e45ea1447a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5748063261070900675, guid: cdfac0b98a61eca43b8581e45ea1447a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -99024,6 +99032,10 @@ PrefabInstance:
     - target: {fileID: 5748063261070900674, guid: cdfac0b98a61eca43b8581e45ea1447a, type: 3}
       propertyPath: m_Name
       value: UpgradeTab
+      objectReference: {fileID: 0}
+    - target: {fileID: 5748063261070900674, guid: cdfac0b98a61eca43b8581e45ea1447a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5748063261070900675, guid: cdfac0b98a61eca43b8581e45ea1447a, type: 3}
       propertyPath: m_Pivot.x
