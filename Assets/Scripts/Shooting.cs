@@ -5,6 +5,8 @@ using Random = UnityEngine.Random;
 [System.Serializable]
 public class Shooting : MonoBehaviour
 {
+    public static Shooting Instance;
+
     private Camera mainCam;
     private Vector3 mousePos;
 
