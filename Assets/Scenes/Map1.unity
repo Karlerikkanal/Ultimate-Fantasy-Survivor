@@ -89879,7 +89879,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletType:
   - {fileID: 1933656280698490099, guid: f2c0e0a090156a742bb926e3ac644366, type: 3}
-  - {fileID: 952092891735865509, guid: 78ebffbe7f10d5240ba7d859ab712a1d, type: 3}
+  - {fileID: 952092891735865509, guid: 3d910e399bb54b2489663108cb78abbb, type: 3}
   bulletTransform: {fileID: 18151340}
   arrowSounds: {fileID: 11400000, guid: 6b886825f2ee95f4dbd5edaf109201b0, type: 2}
   canFire: 1
@@ -90097,6 +90097,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1627737370}
+  - component: {fileID: 1627737371}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -90121,6 +90122,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1627737371
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627737369}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7b72b6958db58484198ff2abb6be47e0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &1652072127 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8829462584297417881, guid: 1a6234868a245e64dad1e649257ad0fa, type: 3}
