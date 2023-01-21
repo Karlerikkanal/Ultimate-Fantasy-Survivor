@@ -28,6 +28,7 @@ public class GameHUD : MonoBehaviour
     }
     void Start()
     {
+        Time.timeScale = 1f;
         HealthBar.fillAmount = 1f;
         ArmorBar.fillAmount = 0f;
         XpBar.fillAmount = 0f;
@@ -105,6 +106,7 @@ public class GameHUD : MonoBehaviour
         RestartPanel.SetActive(true);
         //Destroy(Player.Instance.gameObject, 1f);
         Player.Instance.gameObject.SetActive(false);
+        Time.timeScale = 0f;
         if (PlayerPrefs.HasKey("money"))
         {
             PlayerPrefs.SetFloat("money", float.Parse(ScoreNumberText.text) + PlayerPrefs.GetFloat("money"));
