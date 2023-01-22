@@ -17,13 +17,13 @@ public class ShopHandler : MonoBehaviour
     void OnDisable()
     {
         PlayerPrefs.SetFloat("money", money);
-        PlayerPrefs.SetInt("healthPrice", HealthPresenter.price);
+        PlayerPrefs.SetFloat("healthPrice", HealthPresenter.price);
         PlayerPrefs.SetInt("healthLevel", HealthPresenter.level);
-        PlayerPrefs.SetInt("speedPrice", SpeedPresenter.price);
+        PlayerPrefs.SetFloat("speedPrice", SpeedPresenter.price);
         PlayerPrefs.SetInt("speedLevel", SpeedPresenter.level);
-        PlayerPrefs.SetInt("fireratePrice", FireratePresenter.price);
+        PlayerPrefs.SetFloat("fireratePrice", FireratePresenter.price);
         PlayerPrefs.SetInt("firerateLevel", FireratePresenter.level);
-        PlayerPrefs.SetInt("multishotPrice", MultishotPresenter.price);
+        PlayerPrefs.SetFloat("multishotPrice", MultishotPresenter.price);
         PlayerPrefs.SetInt("multishotLevel", MultishotPresenter.level);
     }
 
@@ -38,10 +38,10 @@ public class ShopHandler : MonoBehaviour
         }
         else
         {
-            HealthPresenter.SetPriceAndLevel(PlayerPrefs.GetInt("healthLevel"), PlayerPrefs.GetInt("healthPrice"));
-            SpeedPresenter.SetPriceAndLevel(PlayerPrefs.GetInt("speedLevel"), PlayerPrefs.GetInt("speedPrice"));
-            FireratePresenter.SetPriceAndLevel(PlayerPrefs.GetInt("firerateLevel"), PlayerPrefs.GetInt("fireratePrice"));
-            MultishotPresenter.SetPriceAndLevel(PlayerPrefs.GetInt("multishotLevel"), PlayerPrefs.GetInt("multishotPrice"));
+            HealthPresenter.SetPriceAndLevel(PlayerPrefs.GetInt("healthLevel"), PlayerPrefs.GetFloat("healthPrice"));
+            SpeedPresenter.SetPriceAndLevel(PlayerPrefs.GetInt("speedLevel"), PlayerPrefs.GetFloat("speedPrice"));
+            FireratePresenter.SetPriceAndLevel(PlayerPrefs.GetInt("firerateLevel"), PlayerPrefs.GetFloat("fireratePrice"));
+            MultishotPresenter.SetPriceAndLevel(PlayerPrefs.GetInt("multishotLevel"), PlayerPrefs.GetFloat("multishotPrice"));
         }
         money = PlayerPrefs.GetFloat("money");
         MoneyText.text = "MONEY: " + money.ToString();

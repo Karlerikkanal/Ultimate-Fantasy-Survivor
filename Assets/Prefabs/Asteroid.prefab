@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 8
-  damage: 6
+  damage: 2
   timeBetweenFiring: 0.9
   angle: 40
   ParticlePrefab: {fileID: 2455896460258852127, guid: 7dd63825b176a434594f296aca23dd33, type: 3}

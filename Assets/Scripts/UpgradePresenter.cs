@@ -18,10 +18,10 @@ public class UpgradePresenter : MonoBehaviour
     {
         //purchaseSound?.PlayAtIndex(0);
     }
-    public int price;
+    public float price;
     public int level;
 
-    public void SetPriceAndLevel(int Level, int Price)
+    public void SetPriceAndLevel(int Level, float Price)
     {
         CostText.text = "Price: " + Price.ToString();
         CountText.text = Level.ToString() + "/5";

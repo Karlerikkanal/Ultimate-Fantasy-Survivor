@@ -70,7 +70,7 @@ public class EnemySpawner : MonoBehaviour
         
         GenerateEnemies();
 
-        spawnInterval = 0.2f;
+        spawnInterval = 0.1f;
         waveTimer = waveDuration;
     }
 

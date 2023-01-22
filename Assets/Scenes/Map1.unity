@@ -700,7 +700,7 @@ MonoBehaviour:
   m_Follow: {fileID: 2073788883}
   m_Lens:
     FieldOfView: 40
-    OrthographicSize: 6
+    OrthographicSize: 5.8
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
@@ -1787,7 +1787,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 6
+  orthographic size: 5.8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -97951,7 +97951,7 @@ MonoBehaviour:
   steppingSounds: {fileID: 11400000, guid: e6ce44f9439155c4a87e4deb060fc4e9, type: 2}
   powerupSounds: {fileID: 11400000, guid: 6640b8b1cefa2ff4192dbe62afaf3c5f, type: 2}
   levelupSounds: {fileID: 11400000, guid: 6b38ded91844f584d8d8f8451336febf, type: 2}
-  MovementSpeed: 150
+  MovementSpeed: 100
   movement: {x: 0, y: 0}
   animator: {fileID: 2073788891}
   gamePaused: 0
