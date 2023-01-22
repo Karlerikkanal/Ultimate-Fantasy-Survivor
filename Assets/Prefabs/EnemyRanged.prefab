@@ -166,7 +166,7 @@ MonoBehaviour:
   health: 0.7
   speed: 1
   damage: 0.5
-  droprate: 5
+  droprate: 2
   powerups:
   - {fileID: 1131529367646808718, guid: f4ef07f69102bc246800ec70e9d3373c, type: 3}
   - {fileID: 6815402688445174062, guid: 0a1252b998f4d8b4f9f97259acd56f4b, type: 3}
