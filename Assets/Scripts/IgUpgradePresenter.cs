@@ -12,17 +12,9 @@ public class IgUpgradePresenter : MonoBehaviour
     private Button button;
     public AudioClipGroup purchaseSound;
 
-    public int level;
-
     public void ClickPurchase()
     {
         purchaseSound?.Play();
         GameHUD.Instance.ResumeGame(true);
     }
-
-    public void setLevel(int Level)
-    {
-        level = Level;
-    }
-    
 }

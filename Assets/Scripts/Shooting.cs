@@ -22,7 +22,12 @@ public class Shooting : MonoBehaviour
     private float delayFiring;
     [SerializeField]
     private float timeBetweenFiring;
+    [SerializeField]
     private float bulletSpeed;
+    [SerializeField]
+    private float bulletDamage;
+    [SerializeField]
+    private float explosiveRadius;
 
     private float rapidFireTimer;
     private bool rapidFire = false;
@@ -30,23 +35,68 @@ public class Shooting : MonoBehaviour
     public int numShots = 1;// Number of shots fired;
     public float angle; // Angle between shots
 
+    private void Awake()
+    {
+        Instance = this;
+    }
     void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
-        //Setting bullet properties for shooting
-        bullet = bulletType[0];
+        ChangeBullet(1);
+    }
+
+    public void ChangeBullet(int bulletNr)
+    {
+        bullet = bulletType[bulletNr];
         bulletProperties = bullet.GetComponent<Bullet>();
 
         timeBetweenFiring = bulletProperties.timeBetweenFiring;
         bulletSpeed = bulletProperties.Speed;
         angle = bulletProperties.angle;
-
-        if (PlayerPrefs.HasKey("firerateLevel"))
+        bulletDamage = bulletProperties.damage;
+        if (bullet.tag == "Explosive")
         {
-            timeBetweenFiring *= (100 - ((float)PlayerPrefs.GetInt("firerateLevel") * 4))/100;
+            explosiveRadius = bullet.GetComponent<CircleCollider2D>().radius;
         }
 
+        FirerateShopUpgrade();
+    }
+
+    public void FirerateShopUpgrade()
+    {
+        if (PlayerPrefs.HasKey("firerateLevel"))
+        {
+            timeBetweenFiring *= (100 - ((float)PlayerPrefs.GetInt("firerateLevel") * 4)) / 100;
+        }
+    }
+
+    public void ReduceShootingAngle()
+    {
+        angle *= 0.95f; // Reduce -angle;angle by 5%
+    }
+
+    public void IncreaseDamage()
+    {
+        bulletDamage *= 1.05f; // Increase damage by 5%
+    }
+
+    public void IncreaseFirerate()
+    {
+        timeBetweenFiring *= 0.95f; // Decrease damage by 5%
+    }
+
+    public void IncreaseBulletVelocity()
+    {
+        bulletSpeed *= 1.05f;
+    }
+
+    public void IncreaseExplosiveRadius()
+    {
+        if (bullet.tag == "Explosive")
+        {
+            explosiveRadius *= 1.05f;
+        }
     }
 
     void Update()
@@ -95,6 +145,11 @@ public class Shooting : MonoBehaviour
             for (int i = 0; i < numShots; i++)
             {
                 GameObject bulletClone = Instantiate(bullet, bulletTransform.transform.position, transform.rotation);
+                bulletClone.GetComponent<Bullet>().damage = bulletDamage; //Increase instantiated bullet damage
+                if (bullet.tag == "Explosive") //Increase explosion radius
+                {
+                    bulletClone.GetComponent<CircleCollider2D>().radius = explosiveRadius;
+                }
                 float spreadAngle = 0;
                 if (numShots > 1)
                 {
@@ -112,7 +167,7 @@ public class Shooting : MonoBehaviour
         }
     }
 
-    public void rapidFirePowerup()
+    public void RapidFirePowerup()
     {
         rapidFire = true;
     }

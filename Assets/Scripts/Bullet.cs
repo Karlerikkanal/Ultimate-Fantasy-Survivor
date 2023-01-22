@@ -69,4 +69,9 @@ public class Bullet : MonoBehaviour
     {
         bulletSound?.Play();
     }
+
+    public void IncreaseBulletDamage(float _damage)
+    {
+        damage = _damage;
+    }
 }
