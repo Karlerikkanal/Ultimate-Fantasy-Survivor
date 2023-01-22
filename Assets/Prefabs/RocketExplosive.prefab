@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8245695034586440668}
   - component: {fileID: 1287914361875527628}
   - component: {fileID: -4868479649067305688}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RocketExplosive
   m_TagString: Explosive
   m_Icon: {fileID: 0}
