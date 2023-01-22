@@ -29,7 +29,7 @@ public class IgShopHandler : MonoBehaviour
 
     //Weapon buttons
     [Header("Change Weapons")]
-    public IgUpgradePresenter ArrowButton;
+    public IgUpgradePresenter GreenLaser;
     public IgUpgradePresenter RocketButton;
     public IgUpgradePresenter AsteroidButton;
     public IgUpgradePresenter BombButton;
@@ -116,9 +116,9 @@ public class IgShopHandler : MonoBehaviour
         }
     }
 
-    public void ChangeArrow()
+    public void ChangeGreenLaser()
     {
-        ArrowButton.ClickPurchase();
+        GreenLaser.ClickPurchase();
         Shooting.Instance.ChangeBullet(0);
         ReApplyUpgrades();
     }
