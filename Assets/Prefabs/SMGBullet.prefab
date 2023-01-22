@@ -121,7 +121,7 @@ MonoBehaviour:
   angle: 15
   ParticlePrefab: {fileID: 0}
   hitSound: {fileID: 0}
-  bulletSound: {fileID: 0}
+  bulletSound: {fileID: 11400000, guid: 266150d23fbe47847939afe99977969a, type: 2}
 --- !u!50 &2410095848099738785
 Rigidbody2D:
   serializedVersion: 4
