@@ -130,7 +130,7 @@ public class Player : MonoBehaviour
         Health = 1f;
         Armor = 0f;
         Xp = 0f;
-        Level = 0;
+        Level = 1;
         XpNeededForNextLevel = 100;
         nextRegenTick = Time.time;
         InVulnerable = false;
