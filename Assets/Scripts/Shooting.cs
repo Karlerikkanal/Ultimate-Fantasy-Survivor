@@ -60,6 +60,11 @@ public class Shooting : MonoBehaviour
             explosiveRadius = bullet.GetComponent<CircleCollider2D>().radius;
         }
 
+        if (PlayerPrefs.HasKey("multishotLevel"))
+        {
+            numShots += PlayerPrefs.GetInt("multishotLevel");
+        }
+
         FirerateShopUpgrade();
     }
 

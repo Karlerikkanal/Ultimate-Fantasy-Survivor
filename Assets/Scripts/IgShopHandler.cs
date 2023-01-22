@@ -12,7 +12,6 @@ public class IgShopHandler : MonoBehaviour
         {"Damage", 0},
         {"Firerate", 0},
         {"Movement", 0},
-        {"ExtraBullet", 0},
         {"Velocity", 0},
         {"ExplosiveRadius", 0}
     };
@@ -23,7 +22,6 @@ public class IgShopHandler : MonoBehaviour
     public IgUpgradePresenter DamageUpButton; //
     public IgUpgradePresenter FirerateUpButton; //
     public IgUpgradePresenter MovementSpeedUpButton;
-    public IgUpgradePresenter ExtraBulletButton;
     public IgUpgradePresenter BulletVelocityUpButton; //
     public IgUpgradePresenter ExplosiveRadiusUpButton; //
     public IgUpgradePresenter ArmorAndHealthButton; //
@@ -47,13 +45,12 @@ public class IgShopHandler : MonoBehaviour
 
     private void Start()
     {
-        Buttons = new GameObject[] 
+        Buttons = new GameObject[]
         {
             ReduceAngleButton.gameObject,
             DamageUpButton.gameObject,
             FirerateUpButton.gameObject,
             MovementSpeedUpButton.gameObject,
-            ExtraBulletButton.gameObject,
             BulletVelocityUpButton.gameObject,
             ExplosiveRadiusUpButton.gameObject,
             GreenLaser.gameObject,
@@ -126,13 +123,6 @@ public class IgShopHandler : MonoBehaviour
         upgrades["Movement"] = upgrades["Movement"] + 1;
     }
 
-    public void ExtraBullet()
-    {
-        ExtraBulletButton.ClickPurchase();
-        Shooting.Instance.numShots++;
-        upgrades["ExtraBullet"] = upgrades["ExtraBullet"] + 1;
-    }
-
     public void BulletVelocityUp()
     {
         BulletVelocityUpButton.ClickPurchase();
@@ -164,9 +154,6 @@ public class IgShopHandler : MonoBehaviour
                     break;
                 case "Velocity":
                     for (int i = 0; i < upgrades[key]; i++) Shooting.Instance.IncreaseBulletVelocity();
-                    break;
-                case "ExplosiveRadius":
-                    for (int i = 0; i < upgrades[key]; i++) Shooting.Instance.IncreaseExplosiveRadius();
                     break;
             }
         }
