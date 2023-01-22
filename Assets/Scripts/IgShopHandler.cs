@@ -26,6 +26,8 @@ public class IgShopHandler : MonoBehaviour
     public IgUpgradePresenter ExtraBulletButton;
     public IgUpgradePresenter BulletVelocityUpButton; //
     public IgUpgradePresenter ExplosiveRadiusUpButton; //
+    public IgUpgradePresenter ArmorAndHealthButton; //
+
 
     //Weapon buttons
     [Header("Change Weapons")]
@@ -36,10 +38,64 @@ public class IgShopHandler : MonoBehaviour
     public IgUpgradePresenter BlueLaserButton;
     public IgUpgradePresenter SMGButton;
 
+    public GameObject[] Buttons;
 
     private void Awake()
     {
         Instance = this;
+    }
+
+    private void Start()
+    {
+        Buttons = new GameObject[] 
+        {
+            ReduceAngleButton.gameObject,
+            DamageUpButton.gameObject,
+            FirerateUpButton.gameObject,
+            MovementSpeedUpButton.gameObject,
+            ExtraBulletButton.gameObject,
+            BulletVelocityUpButton.gameObject,
+            ExplosiveRadiusUpButton.gameObject,
+            GreenLaser.gameObject,
+            RocketButton.gameObject,
+            AsteroidButton.gameObject,
+            BombButton.gameObject,
+            BlueLaserButton.gameObject,
+            SMGButton.gameObject
+        };
+        foreach (GameObject button in Buttons)
+        {
+            button.SetActive(false);
+        }
+    }
+
+    public void ArmorAndHealth()
+    {
+        Player.Instance.Armor = 1f;
+        Player.Instance.Health = 1f;
+        ArmorAndHealthButton.ClickPurchase();
+    }
+
+    public void SetTwoRandomUpgradesActive()
+    {
+        int neededCount = 2;
+        HashSet<GameObject> randomObjects = new();
+        while (randomObjects.Count < neededCount)
+        {
+            randomObjects.Add(Buttons[Random.Range(0, Buttons.Length)]);
+        }
+        foreach (GameObject button in randomObjects)
+        {
+            button.SetActive(true);
+        }
+    }
+
+    public void SetAllUpgradesInactive()
+    {
+        foreach (GameObject button in Buttons)
+        {
+            button.SetActive(false);
+        }
     }
 
     public void ReduceAngle()
@@ -119,42 +175,42 @@ public class IgShopHandler : MonoBehaviour
     public void ChangeGreenLaser()
     {
         GreenLaser.ClickPurchase();
-        Shooting.Instance.ChangeBullet(0);
+        Shooting.Instance.ChangeBullet(1);
         ReApplyUpgrades();
     }
 
     public void ChangeRocket()
     {
         RocketButton.ClickPurchase();
-        Shooting.Instance.ChangeBullet(1);
+        Shooting.Instance.ChangeBullet(2);
         ReApplyUpgrades();
     }
 
     public void ChangeAsteroid()
     {
         AsteroidButton.ClickPurchase();
-        Shooting.Instance.ChangeBullet(2);
+        Shooting.Instance.ChangeBullet(3);
         ReApplyUpgrades();
     }
 
     public void ChangeBomb()
     {
         BombButton.ClickPurchase();
-        Shooting.Instance.ChangeBullet(3);
+        Shooting.Instance.ChangeBullet(4);
         ReApplyUpgrades();
     }
 
     public void ChangeBlueLaser()
     {
         BlueLaserButton.ClickPurchase();
-        Shooting.Instance.ChangeBullet(4);
+        Shooting.Instance.ChangeBullet(5);
         ReApplyUpgrades();
     }
 
     public void ChangeSMG()
     {
         SMGButton.ClickPurchase();
-        Shooting.Instance.ChangeBullet(5);
+        Shooting.Instance.ChangeBullet(6);
         ReApplyUpgrades();
     }
 }

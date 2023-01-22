@@ -43,7 +43,7 @@ public class Shooting : MonoBehaviour
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
-        ChangeBullet(1);
+        ChangeBullet(0);
     }
 
     public void ChangeBullet(int bulletNr)

@@ -45,6 +45,7 @@ public class GameHUD : MonoBehaviour
     {
         if (upgrade) {
             UpgradePanel.SetActive(true);
+            IgShopHandler.Instance.SetTwoRandomUpgradesActive();
             Time.timeScale = 0f;
         }
         else
@@ -59,6 +60,7 @@ public class GameHUD : MonoBehaviour
     {
         if (upgrade) {
             UpgradePanel.SetActive(false);
+            IgShopHandler.Instance.SetAllUpgradesInactive();
             Time.timeScale = 1;
         }
         else
