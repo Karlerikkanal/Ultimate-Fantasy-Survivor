@@ -84,6 +84,8 @@ public class Player : MonoBehaviour
     private float regenDelay = 3f;
     private float nextRegenTick;
 
+    private bool movementEnabled = true;
+
     private float _score;
     public float Score
     {
@@ -134,6 +136,7 @@ public class Player : MonoBehaviour
         XpNeededForNextLevel = 100;
         nextRegenTick = Time.time;
         InVulnerable = false;
+        movementEnabled = true;
 }
 
 
@@ -196,7 +199,10 @@ public class Player : MonoBehaviour
     }
     void FixedUpdate()
     {
-        movePlayer(movement);
+        if (movementEnabled)
+        {
+            movePlayer(movement);
+        }
     }
 
     void movePlayer(Vector2 direction)
@@ -208,6 +214,8 @@ public class Player : MonoBehaviour
     {
         animator.SetBool("IsDead", true);
         deathSound?.Play();
+        movementEnabled = false;
+        rb.velocity = Vector3.zero;
         Invoke("WaitTwoSeconds", 2f);
     }
 
