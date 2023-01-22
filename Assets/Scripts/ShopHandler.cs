@@ -34,7 +34,7 @@ public class ShopHandler : MonoBehaviour
             HealthPresenter.SetPriceAndLevel(0, 1000);
             SpeedPresenter.SetPriceAndLevel(0, 2000);
             FireratePresenter.SetPriceAndLevel(0, 3000);
-            MultishotPresenter.SetPriceAndLevel(0, 1000);
+            MultishotPresenter.SetPriceAndLevel(0, 5000);
         }
         else
         {
