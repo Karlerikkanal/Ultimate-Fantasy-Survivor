@@ -278,7 +278,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5748063260200570248, guid: cdfac0b98a61eca43b8581e45ea1447a, type: 3}
       propertyPath: m_text
-      value: Increases the bullet velocity by 5%
+      value: Increases the bullet velocity by 30%
       objectReference: {fileID: 0}
     - target: {fileID: 5748063260207569452, guid: cdfac0b98a61eca43b8581e45ea1447a, type: 3}
       propertyPath: m_SizeDelta.x
@@ -36952,7 +36952,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5748063260200570248, guid: cdfac0b98a61eca43b8581e45ea1447a, type: 3}
       propertyPath: m_text
-      value: Increases the damage radius for explosives by 5%
+      value: Increases the damage radius for explosives by 20%
       objectReference: {fileID: 0}
     - target: {fileID: 5748063260200570251, guid: cdfac0b98a61eca43b8581e45ea1447a, type: 3}
       propertyPath: m_SizeDelta.x
@@ -88253,7 +88253,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5748063260200570248, guid: cdfac0b98a61eca43b8581e45ea1447a, type: 3}
       propertyPath: m_text
-      value: Adds + 5% damage for the bullets
+      value: Adds +20% damage for the bullets
       objectReference: {fileID: 0}
     - target: {fileID: 5748063260207569453, guid: cdfac0b98a61eca43b8581e45ea1447a, type: 3}
       propertyPath: m_Sprite
@@ -88782,7 +88782,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5748063260200570248, guid: cdfac0b98a61eca43b8581e45ea1447a, type: 3}
       propertyPath: m_text
-      value: Increases the movement speed by 5%
+      value: Increases the movement speed by 15%
       objectReference: {fileID: 0}
     - target: {fileID: 5748063260207569452, guid: cdfac0b98a61eca43b8581e45ea1447a, type: 3}
       propertyPath: m_SizeDelta.x
@@ -93950,7 +93950,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5748063260200570248, guid: cdfac0b98a61eca43b8581e45ea1447a, type: 3}
       propertyPath: m_text
-      value: Increases the firerate by 5%
+      value: Increases the firerate by 10%
       objectReference: {fileID: 0}
     - target: {fileID: 5748063260207569453, guid: cdfac0b98a61eca43b8581e45ea1447a, type: 3}
       propertyPath: m_Sprite
@@ -100776,7 +100776,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5748063260200570248, guid: cdfac0b98a61eca43b8581e45ea1447a, type: 3}
       propertyPath: m_text
-      value: Reduces the angle of the bullets by 5%
+      value: Reduces the angle of the bullets by 15%
       objectReference: {fileID: 0}
     - target: {fileID: 5748063260207569453, guid: cdfac0b98a61eca43b8581e45ea1447a, type: 3}
       propertyPath: m_Sprite

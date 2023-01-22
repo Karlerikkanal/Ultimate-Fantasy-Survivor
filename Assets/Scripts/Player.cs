@@ -213,7 +213,7 @@ public class Player : MonoBehaviour
 
     public void IncreaseMovementSpeed()
     {
-        MovementSpeed *= 1.1f; //Increase movementspeed by 10%
+        MovementSpeed *= 1.15f; //Increase movementspeed by 10%
     }
 
     private void WaitTwoSeconds()

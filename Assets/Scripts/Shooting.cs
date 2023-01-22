@@ -73,29 +73,29 @@ public class Shooting : MonoBehaviour
 
     public void ReduceShootingAngle()
     {
-        angle *= 0.95f; // Reduce -angle;angle by 5%
+        angle *= 0.85f; // Reduce -angle;angle by 5%
     }
 
     public void IncreaseDamage()
     {
-        bulletDamage *= 1.05f; // Increase damage by 5%
+        bulletDamage *= 1.2f; // Increase damage by 5%
     }
 
     public void IncreaseFirerate()
     {
-        timeBetweenFiring *= 0.95f; // Decrease damage by 5%
+        timeBetweenFiring *= 0.90f; // Decrease damage by 5%
     }
 
     public void IncreaseBulletVelocity()
     {
-        bulletSpeed *= 1.05f;
+        bulletSpeed *= 1.3f;
     }
 
     public void IncreaseExplosiveRadius()
     {
         if (bullet.tag == "Explosive")
         {
-            explosiveRadius *= 1.05f;
+            explosiveRadius *= 1.2f;
         }
     }
 
