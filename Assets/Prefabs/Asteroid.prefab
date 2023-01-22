@@ -103,9 +103,10 @@ MonoBehaviour:
   Speed: 10
   damage: 5
   timeBetweenFiring: 0.5
-  angle: 0
+  angle: 30
   ParticlePrefab: {fileID: 2455896460258852127, guid: 7dd63825b176a434594f296aca23dd33, type: 3}
   hitSound: {fileID: 11400000, guid: b118ab61f3337ae46b2e8cecc5d67ecd, type: 2}
+  bulletSound: {fileID: 0}
 --- !u!58 &8245695034586440668
 CircleCollider2D:
   m_ObjectHideFlags: 0

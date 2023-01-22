@@ -212,6 +212,11 @@ public class Player : MonoBehaviour
         Invoke("WaitTwoSeconds", 2f);
     }
 
+    public void IncreaseMovementSpeed()
+    {
+        MovementSpeed *= 1.1f; //Increase movementspeed by 10%
+    }
+
     private void WaitTwoSeconds()
     {
         GameHUD.Instance.ShowLosePanel();
@@ -232,7 +237,7 @@ public class Player : MonoBehaviour
         {
             powerupSounds?.Play();
             Shooting shootingScript = GameObject.FindGameObjectWithTag("RotatePoint").GetComponent<Shooting>();
-            shootingScript.rapidFirePowerup();
+            shootingScript.RapidFirePowerup();
             GameObject.Destroy(collision.gameObject);
         }
 
