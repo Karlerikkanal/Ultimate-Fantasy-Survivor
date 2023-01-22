@@ -43,7 +43,7 @@ public class Shooting : MonoBehaviour
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
-        ChangeBullet(0);
+        ChangeBullet(3);
     }
 
     public void ChangeBullet(int bulletNr)
@@ -113,7 +113,7 @@ public class Shooting : MonoBehaviour
             if (rapidFire)
             {
                 rapidFireTimer += Time.deltaTime;
-                if (rapidFireTimer > 5.0f)
+                if (rapidFireTimer > 25.0f)
                 {
                     rapidFire = false;
                     rapidFireTimer = 0;

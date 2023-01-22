@@ -127,7 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 10
   damage: 1
-  timeBetweenFiring: 0.3
+  timeBetweenFiring: 0.5
   angle: 5
   ParticlePrefab: {fileID: 0}
   hitSound: {fileID: 0}

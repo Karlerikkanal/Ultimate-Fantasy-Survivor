@@ -162,10 +162,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeff036f5c8b21d49a69375f70d0a254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
-  speed: 1.5
-  damage: 1
-  droprate: 100
+  health: 40
+  speed: 0.7
+  damage: 10
+  droprate: 50
   powerups:
   - {fileID: 1131529367646808718, guid: f4ef07f69102bc246800ec70e9d3373c, type: 3}
   - {fileID: 6417712763702266617, guid: 2c5190eeb73789a41bf5eceabc3705c6, type: 3}

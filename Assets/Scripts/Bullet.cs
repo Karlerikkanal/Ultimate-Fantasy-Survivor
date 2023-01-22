@@ -26,18 +26,15 @@ public class Bullet : MonoBehaviour
         if (enemy != null)
         {
             Collider2D[] collisions = Physics2D.OverlapCircleAll(transform.position, circleCollider2D.radius);
-            int count = 0;
             foreach (Collider2D collider in collisions)
             {
                 EnemyStats enemy1 = collider.gameObject.GetComponent<EnemyStats>();
                 if (enemy1 != null)
                 {
-                    count++;
                     hitSound?.Play();
                     enemy1.Hit(damage);
                 }
             }
-            Debug.Log(count);
             GameObject.Instantiate(ParticlePrefab, transform.position, Quaternion.identity);
             GameObject.Destroy(gameObject);
         }

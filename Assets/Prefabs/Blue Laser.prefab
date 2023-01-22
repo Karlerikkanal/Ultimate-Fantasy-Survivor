@@ -126,11 +126,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 20
-  damage: 0.4
+  damage: 0.8
   timeBetweenFiring: 0.4
   angle: 5
   ParticlePrefab: {fileID: 0}
   hitSound: {fileID: 0}
+  bulletSound: {fileID: 0}
 --- !u!50 &4363819280063264008
 Rigidbody2D:
   serializedVersion: 4

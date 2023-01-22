@@ -41,12 +41,12 @@ public class EnemyStats : MonoBehaviour
             GetComponent<EnemyMovement>().enabled = false;
             GetComponent<BoxCollider2D>().enabled = false;
             GetComponent<EnemyMovement>().isDead();
-            Destroy(gameObject, 1f);
             Vector3 coords = gameObject.transform.position;
             GenerateDrop(coords);
             spawner.enemiesAlive--;
             Player.Instance.Score = Player.Instance.Score + score;
             Player.Instance.Xp = Player.Instance.Xp + score;
+            Destroy(gameObject, 1f);
         }
     }
 

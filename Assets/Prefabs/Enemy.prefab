@@ -150,7 +150,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementSpeed: 1
   movement: {x: 0, y: 0}
-  stats: {fileID: 0}
 --- !u!114 &1180164905019362138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,8 +164,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0.7
   speed: 1
-  damage: 1
-  droprate: 30
+  damage: 1.5
+  droprate: 5
   powerups:
   - {fileID: 1131529367646808718, guid: f4ef07f69102bc246800ec70e9d3373c, type: 3}
   - {fileID: 6417712763702266617, guid: 2c5190eeb73789a41bf5eceabc3705c6, type: 3}

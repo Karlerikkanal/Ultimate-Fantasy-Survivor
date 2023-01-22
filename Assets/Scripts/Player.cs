@@ -160,7 +160,7 @@ public class Player : MonoBehaviour
         if (InVulnerable)
         {
             inVulnerabilityTimer += Time.deltaTime;
-            if (inVulnerabilityTimer > 10.00)
+            if (inVulnerabilityTimer > 10f)
             {
                 InVulnerable = false;
                 inVulnerabilityTimer = 0;
@@ -226,7 +226,6 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.name.Contains("Armor"))
         {
-            Debug.Log("playerscriptis armor korjatud");
             powerupSounds?.Play();
             Armor = 1f;            
             GameObject.Destroy(collision.gameObject);
@@ -243,18 +242,15 @@ public class Player : MonoBehaviour
         else if (collision.gameObject.name.Contains("Invulnerability"))
         {
             powerupSounds?.Play();
-            Debug.Log("playerscriptis invulnerability korjatud");
             InVulnerable = true;
             // make a bit transparent           
             rend.color = new Color (1, 1, 1, 0.5f);
-            Debug.Log("peaks olema invulnerable");
             GameObject.Destroy(collision.gameObject);
         }
 
         else if (collision.gameObject.name.Contains("Instakill"))
         {
             powerupSounds?.Play();
-            Debug.Log("playerscriptis Instakill korjatud");
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
             foreach (GameObject enemy in enemies)
             {
@@ -266,17 +262,13 @@ public class Player : MonoBehaviour
         else if (collision.gameObject.name.Contains("CoinPowerup"))
         {
             powerupSounds?.Play();
-            Debug.Log("playerscriptis coinpowerup korjatud");
-            Debug.Log("Skoor enne: " + Score);
-            Score += 1000000f;
-            Debug.Log("Skoor pärast: " + Score);
+            Score += 2000f;
             GameObject.Destroy(collision.gameObject);
         }
 
         else if (collision.gameObject.name.Contains("HealthRefill"))
         {
             powerupSounds?.Play();
-            Debug.Log("playerscriptis healthrefill korjatud");
             Health = 1f;
             GameObject.Destroy(collision.gameObject);
         }
@@ -285,12 +277,7 @@ public class Player : MonoBehaviour
         else if (collision.gameObject.name.Contains("XPBoost"))
         {
             powerupSounds?.Play();
-            Debug.Log("playerscriptis XPBoost korjatud");
-            Debug.Log("XP enne: " + Xp);
-            Debug.Log("XPNEEDED enne: " + XpNeededForNextLevel);
-            //XpNeededForNextLevel = Xp;
             Xp += XpNeededForNextLevel;
-            Debug.Log("XP pärast: " + Xp);
             GameObject.Destroy(collision.gameObject);
         }
     }
